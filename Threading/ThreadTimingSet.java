@@ -1,5 +1,5 @@
 package Threading;
-class Thread1
+class Thread1 extends Thread
 {
     public void run()
     {
@@ -9,7 +9,7 @@ class Thread1
         }
     }
 }
-class Thread2
+class Thread2 extends Thread
 {
     public void run()
     {
@@ -20,4 +20,10 @@ class Thread2
     }
 }
 public class ThreadTimingSet {
+    public static void main(String[] args) {
+        Thread1 t1 = new Thread1();
+        Thread2 t2 = new Thread2();
+        t1.start();
+        t2.start();
+    }
 }
