@@ -70,8 +70,38 @@ public class NoteManager {
         catch (IOException e)
         {
             System.out.println("No note found! Create a note first.");
+            e.printStackTrace();
         }
     }
-
-
+    //Append to an existing note
+    public static void appendNote(Scanner scanner)
+    {
+        try(FileWriter writer = new FileWriter(File_Path,true))
+        {
+            System.out.println("Enter text to append:");
+            String note = scanner.nextLine();
+            Writer.write(""+note);
+            System.out.println("Text appended succesfully");
+        }
+        catch (IOException e)
+        {
+            System.out.println("Error appending to note");
+            e.printStackTrace();
+        }
+    }
+    //delete the note file
+    public static void deleteNote()
+    {
+        File file = new File(File_Path);
+        if(file.exists()) {
+            if (file.delete()) {
+                System.out.println("Note deleted succesfully!");
+            } else {
+                System.out.println("Unable to delete note.");
+            }
+        }
+        else {
+            System.out.println("No note found to delete!");
+        }
+    }
 }
