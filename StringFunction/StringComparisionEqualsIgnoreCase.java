@@ -7,4 +7,4 @@ public class StringComparisionEqualsIgnoreCase {
         System.out.println(isTrue);
     }
 }
-// this string comparision is not case sensitive so Prabin and pprabin are same and it returns true
+// this string comparision is not case sensitive so Prabin and prabin are same and it returns true
