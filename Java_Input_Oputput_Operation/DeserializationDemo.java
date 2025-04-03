@@ -13,7 +13,11 @@ public class DeserializationDemo {
             oi.close();
 
             System.out.println("Deserialized Collage Name: " + c.name);
-        } catch (Exception e) {
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        catch (ClassNotFoundException e)
+        {
             e.printStackTrace();
         }
     }
