@@ -34,3 +34,8 @@ Hello h = new Hello("Prabin");
 h.display();
 }
 }
+
+Explain Method Overloading in java with a proper example.
+Method overloading is a technique in methods where methods can have same name but the parameters inside it
+should be different it is known as Method Overloading.
+Example:
