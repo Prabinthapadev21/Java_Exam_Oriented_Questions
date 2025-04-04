@@ -151,3 +151,42 @@ private int a = 10;
 protected int b = 20;
 public int c = 30;
 }
+
+Define Inheritence.Explain the use of extends keyword in java.
+Inheritence is the oops concept which helps to inherit the property of the parent class(Super class)
+to child class.It helps in code reusability and makes the program more organized and modular.
+The extends keyword is used in java to establish an inheritence relationship between a child class
+and a parent class.
+Example:
+Class Animal
+{
+int legs;
+int eyes;
+int ears;
+public Animal(int legs,int eyes,int ears)
+{
+this.legs = legs;
+this.eyes=eyes;
+this.ears=ears;
+}
+public void display()
+{
+sout(legs,eyes,ears);
+}
+}
+class InheritenceDemo extends Animal
+{
+public InheritenceDemo()
+{
+super(4,2,2);
+}
+public void show()
+{
+display();
+}
+public static void main(String[] args)
+{
+Dog d = new Dog();
+d.show();
+}
+}
