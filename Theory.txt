@@ -91,3 +91,28 @@ public class ThisSuperKeywordExample {
         d.display();
     }
 }
+
+Define Exceptions.How Exceptions are handeled in java? Explain with a proper example.
+An exception in java is an unwanted event or error that occurs during the execution
+of the program,which disrupts the normal flow of the program.
+Exception are objects which represent runtime errors, such as dividing by zero,
+accessing an invalid array index, or opening a file that doesnot exist.
+We can handle exceptions through following keywords:try,catch,throw,throws.
+
+Example:
+public class ExceptionDemo
+{
+public static void main(String[] args)
+{
+try{
+int i=0,num=2;
+int div = num/i;
+System.out.println("THis line will not execute");
+}
+catch(Exception e)
+{
+System.out.println("Exception caught!");
+e.printStackTrace();
+}
+}
+}

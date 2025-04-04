@@ -61,3 +61,58 @@ public class MethodOverloadingConcept {
 What is the use of this and super keyword.Explain with example.
 this is a keyword in java which is  used to refer to instance variable methods or constructor with in the same class.
 And super is also a keyword in java which is used to refer to instance variable, methods or constructor form the parent(super class) class
+Example:
+class Animal
+{
+    String name="Animal";
+    void display()
+    {
+        System.out.println("I am a Animal");
+    }
+}
+class Dog extends Animal
+{
+    String name ="Dog";
+    void ShowNames()
+    {
+        System.out.println("Child class name:"+this.name);
+        System.out.println("Parent class name:"+super.name);
+    }
+    void display()
+    {
+        super.display();
+        System.out.println("I am a dog");
+    }
+}
+public class ThisSuperKeywordExample {
+    public static void main(String[] args) {
+        Dog d = new Dog();
+        d.ShowNames();
+        d.display();
+    }
+}
+
+Define Exceptions.How Exceptions are handeled in java? Explain with a proper example.
+An exception in java is an unwanted event or error that occurs during the execution
+of the program,which disrupts the normal flow of the program.
+Exception are objects which represent runtime errors, such as dividing by zero,
+accessing an invalid array index, or opening a file that doesnot exist.
+We can handle exceptions through following keywords:try,catch,throw,throws.
+
+Example:
+public class ExceptionDemo
+{
+public static void main(String[] args)
+{
+try{
+int i=0,num=2;
+int div = num/i;
+System.out.println("THis line will not execute");
+}
+catch(Exception e)
+{
+System.out.println("Exception caught!");
+e.printStackTrace();
+}
+}
+}
