@@ -1,0 +1,36 @@
+What is Continue Statement in java?
+Continue statement is a control flow statement which is used to skip the current iteration
+of a loop and move to next one.It is often used with the conditional satements inside
+for,while,do-while loop.
+Example:
+for(int i =0;i<10;i++)
+{
+if(i==5)
+{
+continue;
+}
+System.out.Println(i+"");
+}
+output = 0,1,2,3,4,6,7,8,9
+
+What is a partmeterized constructor? Explain With Example.
+A parameterized constructor is a constructor that accepts arguments to initilize an object with specific values when it is created.
+Example:
+class Hello
+{
+String s;
+}
+public Hello(String s)
+{
+this.s = s;
+}
+public void display()
+{
+System.out.println("Name= "+s);
+}
+public static void main(String[] args)
+{
+Hello h = new Hello("Prabin");
+h.display();
+}
+}
