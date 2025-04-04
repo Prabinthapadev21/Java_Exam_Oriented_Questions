@@ -36,6 +36,28 @@ h.display();
 }
 
 Explain Method Overloading in java with a proper example.
-Method overloading is a technique in methods where methods can have same name but the parameters inside it
-should be different it is known as Method Overloading.
+Method overloading is a feature in java where multiple methods can have same name
+but the order,type and number should be different.
 Example:
+class Calculation
+{
+    public int  addition(int a,int b,int c)
+    {
+        return a+b+c;
+    }
+    public int  addition(int a,int b)
+    {
+        return a+b;
+    }
+}
+public class MethodOverloadingConcept {
+    public static void main(String[] args) {
+        Calculation c = new Calculation();
+        System.out.println("Sum = "+ c.addition(1,2,3));
+        System.out.println("Sum ="+ c.addition(1,2));
+    }
+}
+
+What is the use of this and super keyword.Explain with example.
+this is a keyword in java which is  used to refer to instance variable methods or constructor with in the same class.
+And super is also a keyword in java which is used to refer to instance variable, methods or constructor form the parent(super class) class
