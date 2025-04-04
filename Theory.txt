@@ -118,8 +118,25 @@ e.printStackTrace();
 }
 
 Write short note on:
-Interface:Interface is a concept of oops which is used to implement the multiple inheritence
-because by extending we cannot have multiple inheritence so to make it possible we use interface.
-
-Access Modifier: Access Modifier helps to make our code visibility either protected or public for security.
-examples:public,private,protected etc.
+An interface in java is a reference type,similar to class, that can contain only abstract methods(by default)
+and constants(public,static, and final).It is used to achieve multiple inheritence in java, which is not possible
+with classes alone.A class can implement multiple interface,allowing it to inherit behaviour from more than one source.
+Interface define what a class must do,but not how it does it.
+Example:
+interface Printable{
+void print();
+}
+interface Showable
+{
+void show();
+}
+class Demo implements Printable,Showable{
+public void print()
+{
+System.out.println("Printing");
+}
+public void show()
+{
+System.out.println("Showing");
+}
+}
