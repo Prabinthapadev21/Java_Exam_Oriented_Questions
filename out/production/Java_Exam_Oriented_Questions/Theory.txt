@@ -190,3 +190,31 @@ Dog d = new Dog();
 d.show();
 }
 }
+
+What is abstract class?Expalin its use with example.
+An abstract class is a class that cannot be instantiated and may contain abstract methods
+(without body) as well as concrete methods(with body).It's used to provide a common base for subclasses
+and to enforce certain methods to implemented in child methods.
+Example:
+class Teacher
+{
+public void display()
+{
+System.out.println("Teacher can teach");
+}
+abstract void
+}
+class Student extends Teacher
+{
+public void display()
+{
+super.display();
+System.out.println("Student can study");
+}
+}
+public class AbstractDemo
+{
+Teacher t1 = new Teacher();
+Teacher t2 = new Student();
+t1.t2.display();
+}
