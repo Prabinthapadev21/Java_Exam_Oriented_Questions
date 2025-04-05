@@ -196,25 +196,33 @@ An abstract class is a class that cannot be instantiated and may contain abstrac
 (without body) as well as concrete methods(with body).It's used to provide a common base for subclasses
 and to enforce certain methods to implemented in child methods.
 Example:
-class Teacher
+package OOPsConcept;
+abstract class Teacher
 {
-public void display()
-{
-System.out.println("Teacher can teach");
+    public void display()
+    {
+        System.out.println("Teacher can teach");
+    }
+    abstract void role();
 }
-abstract void
+class Student extends Teacher{
+    void role()
+    {
+        System.out.println("Student can study");
+    }
 }
-class Student extends Teacher
-{
-public void display()
-{
-super.display();
-System.out.println("Student can study");
+public class AbstractClassDemo {
+    public static void main(String[] args) {
+        Teacher t = new Student();
+        t.display();// calls concrete method from Teacher
+        t.role();//calls implemented abstract method in Stuudent
+    }
 }
-}
-public class AbstractDemo
-{
-Teacher t1 = new Teacher();
-Teacher t2 = new Student();
-t1.t2.display();
-}
+
+Differentiate between bytestream and character stream. Wap to copy the content of a file to another file using streams.
+Bytestream is a concept of file handeling which handeles binary data(image,audio etc). which has base classes
+FileInputStream and FileOutputStream, and read/writes 1 byte at a time.
+while Character stream is a concept of file handeling which handles character(text data).
+It has base class FileReader and FileWriter which reads/writes 1 character at a time.
+Example:
+
