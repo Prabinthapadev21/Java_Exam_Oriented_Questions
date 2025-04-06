@@ -301,3 +301,13 @@ public class InterfaceDemo implements Hi,Hello{
         i.show();
     }
 }
+
+Define Access Modifier. Explain access modifiers in java with example.
+Access Modifiers are the keywords which are used to define the accessiability and the visibility of variable, method and classes to others which makes
+our code more secure and protected.They help enforce encapsulation,increase security and control who can access.
+The types of access modifiers in java are:
+public:Accessible from anywhere.
+private:Accessible only within the class.
+Protected:Accessible in same package+subclasses.
+Default:Accessible with in the same package.
+
