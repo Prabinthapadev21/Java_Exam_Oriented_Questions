@@ -524,7 +524,33 @@ The four string methods in java are:
 3.Concat();
 4.reverse();
 
-Example:
+Example 1:
+class Demo
+{
+static int count =0;
+static void show()
+{
+sout("static method called:"+count);
+}
+public static void main(String[] args)
+{
+Demo.show();
+}
+}
+
+Example 2:
+package StringFunction;
+
+public class FourStringMethod {
+    public static void main(String[] args) {
+        String s ="hello";
+        System.out.println(s.toUpperCase());
+        System.out.println(s.toLowerCase());
+        System.out.println(s.concat("prabin"));
+        System.out.println(s.charAt(1));
+    }
+}
+
 
 
 

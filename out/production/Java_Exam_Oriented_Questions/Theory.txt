@@ -438,29 +438,109 @@ to a child class object.We can achieve polymerphusm in java using:
 method overriding(runtime polymerphism) and through method overloading (complie time polymerphis).
 
 Example:
+package OOPsConcept;
 class A
 {
-public void display()
-{
-sout("Hello from class A");
-}
+    public void display()
+    {
+        System.out.println("Hello from class A");
+    }
 }
 class B extends A
 {
-public void s()
-{
-sout("Hi");
+    public void display()
+    {
+        super.display();
+        System.out.println("Hello from class B");
+    }
 }
+public class PolymerphismDemo {
+    public static void main(String[] args) {
+        A a = new B();
+        a.display();
+    }
 }
-public class Demo
+
+Define method overriding.Wap to implement concept of multiple inheritence in java.
+Method overriding occurs when a childclass provides  specific implementation of a method that is already defined in its superclass.
+The method in the child class must have the same name,return type and parameter.
+example:
+package OOPsConcept;
+class Animal
 {
+    public void sound()
+    {
+        System.out.println("Animal makes sound");
+    }
+}
+class Dog extends Animal{
+    @Override
+    public void sound()
+    {
+        System.out.println("Dog always barks");
+    }
+}
+public class MethodOverriding {
+    public static void main(String[] args) {
+        Animal a = new Dog();
+        a.sound();
+    }
+}
+
+example:
+We can implement the concept of multiple inheritence using interfece:
+interface A
+{
+ void display();
+}
+interace B
+{
+ void show();
+}
+class C implements A,B
+{
+public void display()
+{
+sout("This is interface a");
+}
+public void show()
+{
+sout("This is interface B");
+}
 psvm
 {
-A a = new A();
-A a = new B();
-a.display();
-a.show();
+C c = new C();
+c.display();
+c.show();
 }
 }
+
+Define the use of static keyword.Write any four string methods used in java with example.
+The static keyword in java is used to indicate that a variable, method,block or nested class belongs to class,not the object.
+
+The four string methods in java are:
+1.toUppercase();
+2.toLowercase();
+3.Concat();
+4.reverse();
+
+Example 1:
+class Demo
+{
+static int count =0;
+static void show()
+{
+sout("static method called:"+count);
+}
+public static void main(String[] args)
+{
+Demo.show();
+}
+}
+
+Example 2:
+public
+
+
 
 
