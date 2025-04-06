@@ -515,5 +515,17 @@ c.show();
 }
 }
 
+Define the use of static keyword.Write any four string methods used in java with example.
+The static keyword in java is used to indicate that a variable, method,block or nested class belongs to class,not the object.
+
+The four string methods in java are:
+1.toUppercase();
+2.toLowercase();
+3.Concat();
+4.reverse();
+
+Example:
+
+
 
 
