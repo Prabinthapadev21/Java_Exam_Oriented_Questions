@@ -421,5 +421,15 @@ ph.display();
 }
 }
 
+Define thread.Explain the lifecycle of thread.
+Tread is a concept in java do to which we can run our program in parallel way.
+The life cycle od thread goes through 5 steps:
+1:New: Thread t = new thread();- new thread is created here.
+2:Runnable:t.start():now the thread enters the runnable state.it is ready to run
+and waiting for cpu allocation.
+3:Running:when the task scheduler picks the thread it goes into the running state.
+The run() method is executed here.
+4:waiting:if a thread is waiting for a resource or condition like sleep(),join(),it is temporarily inactive.
+5:Dead:The thread completes its execution or is forcly stopped.it cannot be started again.
 
 
