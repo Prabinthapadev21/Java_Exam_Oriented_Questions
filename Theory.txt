@@ -276,23 +276,28 @@ s.show();
 }
 
 Example of Interface:
-
+package OOPsConcept;
 interface Hi
 {
-public void display()
-{
-sout("This is hi");
-}
+    abstract void display();
 }
 interface Hello
 {
-public void show()
-{
-sout("This is hello");
+    abstract void show();
 }
-}
-class Demo implements Hi,Hello
-psvm
-{
+public class InterfaceDemo implements Hi,Hello{
+    public void display()
+    {
+        System.out.println("Hi World");
+    }
+   public void show()
+    {
+        System.out.println("Hello Wolrd");
+    }
 
+    public static void main(String[] args) {
+        InterfaceDemo i = new InterfaceDemo();
+        i.display();
+        i.show();
+    }
 }
