@@ -395,5 +395,31 @@ System.out.println("Animal sound");
 }
 // class Dog extends Animal//Error
 
+Write a program to create and use java package.
+
+A package in java is a namespace that organize a set of realated classes and Interfaces.
+It is used to avoid conflict and make classes easier to manage.
+TO created package in java we need to create a package using package keyword.
+eg:
+package HiHello;
+class PrintHello
+{
+public void display()
+{
+sout("Hello Hi");
+}
+}
+
+now create a new java class and import the package.
+eg:
+import HiHello.PrintHello;
+class printingHello{
+psvm
+{
+PrintHello ph = new PrintHello();
+ph.display();
+}
+}
+
 
 
