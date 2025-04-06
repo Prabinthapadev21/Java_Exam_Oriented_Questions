@@ -367,4 +367,33 @@ public class handelingException {
     }
 }
 
+shortnote about final keyword:
+final keyword is a keyword in java which is used to decleare constants,prevents method overriding,and stop inheritence of classes.
+final variable:a variable decleared with final cannot ber changed once assigned.
+ 1.final int x = 10;
+x = 20;
+
+2.final method:a method marked as final cannot be overridden in a subclass.
+class A
+{
+final void display()
+{
+System.out.println("Hello");
+}
+class B extends A
+{
+void display()//Error
+}
+}
+3:final class:A class marked as final cannot be inherited.
+final class Animal
+{
+void sound()
+{
+System.out.println("Animal sound");
+}
+}
+// class Dog extends Animal//Error
+
+
 
