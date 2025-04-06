@@ -15,8 +15,8 @@ class Student extends Teacher{
 }
 public class AbstractClassDemo {
     public static void main(String[] args) {
-        Teacher t = new Student();
-        t.display();// calls concrete method from Teacher
-        t.role();//calls implemented abstract method in Stuudent
+        Student s = new Student();
+        s.display();// calls concrete method from Teacher
+        s.role();//calls implemented abstract method in Stuudent
     }
 }

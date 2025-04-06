@@ -249,3 +249,50 @@ public class FileReadWriteDemo {
     }
 }
 
+Differentiate between abstract class and interface,with suitable example.
+Abstract class are the class which contain abstract method and concrete methods which supports single inheritence.
+And Interface contains only abstract methods and access modifier public and used to support multiple Inheritence.
+Example of Abstract class:
+abstract class Name
+{
+public void display()
+{
+sout("This is name");
+}
+abstract void show();
+}
+class Surname extends Name
+{
+ void show()
+{
+sout("This is surname");
+}
+psvm
+{
+Surname s = new Surname();
+s.display();
+s.show();
+}
+}
+
+Example of Interface:
+
+interface Hi
+{
+public void display()
+{
+sout("This is hi");
+}
+}
+interface Hello
+{
+public void show()
+{
+sout("This is hello");
+}
+}
+class Demo implements Hi,Hello
+psvm
+{
+
+}

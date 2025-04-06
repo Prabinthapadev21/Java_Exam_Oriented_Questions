@@ -225,4 +225,74 @@ FileInputStream and FileOutputStream, and read/writes 1 byte at a time.
 while Character stream is a concept of file handeling which handles character(text data).
 It has base class FileReader and FileWriter which reads/writes 1 character at a time.
 Example:
+package FileHandeling;
+import java.io.*;
+public class FileReadWriteDemo {
+    public static void main(String[] args) {
+        try
+        {
+            FileReader fr = new FileReader("vowel.txt");
+            FileWriter fw = new FileWriter("hello.txt");
+            int c;
+            while((c=fr.read())!=-1)
+            {
+                fw.write(c);
+            }
+            fr.close();
+            fw.close();
+            System.out.println("Succesfully copied the content");
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+}
 
+Differentiate between abstract class and interface,with suitable example.
+Abstract class are the class which contain abstract method and concrete methods which supports single inheritence.
+And Interface contains only abstract methods and access modifier public and used to support multiple Inheritence.
+Example of Abstract class:
+abstract class Name
+{
+public void display()
+{
+sout("This is name");
+}
+abstract void show();
+}
+class Surname extends Name
+{
+ void show()
+{
+sout("This is surname");
+}
+psvm
+{
+Surname s = new Surname();
+s.display();
+s.show();
+}
+}
+
+Example of Interface:
+
+interface Hi
+{
+public void display()
+{
+sout("This is hi");
+}
+}
+interface Hello
+{
+public void show()
+{
+sout("This is hello");
+}
+}
+class Demo implements Hi,Hello
+psvm
+{
+
+}
