@@ -344,3 +344,27 @@ public class AccessMofifiers {
     }
 }
 
+Explain Exception handeling mechanism in java with example.
+In java exception handeling is a mechanism that allows us to handle runtime errors(exception)
+so the normal flow of the program can be maintained without crashing.
+Example:
+package ExceptionHandeling;
+public class handelingException {
+    public static void main(String[] args) {
+        int arr[]={1,2,3};
+        try
+        {
+            System.out.println("Value at index 3:"+arr[3]);
+        }
+        catch (ArrayIndexOutOfBoundsException e)
+        {
+            e.printStackTrace();
+        }
+        finally {
+            System.out.println("This is the finally block. It runs always");
+        }
+        System.out.println("Program continues after handeling Exception.");
+    }
+}
+
+
