@@ -432,4 +432,35 @@ The run() method is executed here.
 4:waiting:if a thread is waiting for a resource or condition like sleep(),join(),it is temporarily inactive.
 5:Dead:The thread completes its execution or is forcly stopped.it cannot be started again.
 
+Define polymorphism.How do we achieve polymerphism in java.Explain with example.
+Polymerphism is the ability of an object to take many forms, usually allowing a parent class reference to refer
+to a child class object.We can achieve polymerphusm in java using:
+method overriding(runtime polymerphism) and through method overloading (complie time polymerphis).
+
+Example:
+class A
+{
+public void display()
+{
+sout("Hello from class A");
+}
+}
+class B extends A
+{
+public void s()
+{
+sout("Hi");
+}
+}
+public class Demo
+{
+psvm
+{
+A a = new A();
+A a = new B();
+a.display();
+a.show();
+}
+}
+
 
