@@ -464,16 +464,38 @@ public class PolymerphismDemo {
 Define method overriding.Wap to implement concept of multiple inheritence in java.
 Method overriding occurs when a childclass provides  specific implementation of a method that is already defined in its superclass.
 The method in the child class must have the same name,return type and parameter.
+example:
+package OOPsConcept;
+class Animal
+{
+    public void sound()
+    {
+        System.out.println("Animal makes sound");
+    }
+}
+class Dog extends Animal{
+    @Override
+    public void sound()
+    {
+        System.out.println("Dog always barks");
+    }
+}
+public class MethodOverriding {
+    public static void main(String[] args) {
+        Animal a = new Dog();
+        a.sound();
+    }
+}
 
 example:
 We can implement the concept of multiple inheritence using interfece:
 interface A
 {
-abstract void display();
+ void display();
 }
 interace B
 {
-abstract void show();
+ void show();
 }
 class C implements A,B
 {
