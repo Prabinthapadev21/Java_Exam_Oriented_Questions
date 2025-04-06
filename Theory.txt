@@ -438,29 +438,27 @@ to a child class object.We can achieve polymerphusm in java using:
 method overriding(runtime polymerphism) and through method overloading (complie time polymerphis).
 
 Example:
+package OOPsConcept;
 class A
 {
-public void display()
-{
-sout("Hello from class A");
-}
+    public void display()
+    {
+        System.out.println("Hello from class A");
+    }
 }
 class B extends A
 {
-public void s()
-{
-sout("Hi");
+    public void display()
+    {
+        super.display();
+        System.out.println("Hello from class B");
+    }
 }
-}
-public class Demo
-{
-psvm
-{
-A a = new A();
-A a = new B();
-a.display();
-a.show();
-}
+public class PolymerphismDemo {
+    public static void main(String[] args) {
+        A a = new B();
+        a.display();
+    }
 }
 
 
