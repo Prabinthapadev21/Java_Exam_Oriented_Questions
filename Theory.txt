@@ -311,3 +311,4 @@ private:Accessible only within the class.
 Protected:Accessible in same package+subclasses.
 Default:Accessible with in the same package.
 
+Example:
