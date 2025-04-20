@@ -13,10 +13,18 @@ import java.sql.*;
 public class DatabaseConnectivity {
     public static void main(String[] args) throws Exception
     {
-        String Url ="";
-        String username="";
-        String password="";
-        Class.forName("com.mysql.jdbc.Driver");
+        String Url ="jdbc:mysql://localhost:3306/Connection";
+        String username="root";
+        String password="prabin2062";
+        String Query ="select name from Student where id =1";
+        Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(Url,username,password);
+        Statement st = con.createStatement();
+        ResultSet rs = st.executeQuery(Query);
+        rs.next();
+        String name = rs.getString("name");
+        System.out.println(name);
+        st.close();
+        con.close();
     }
 }
