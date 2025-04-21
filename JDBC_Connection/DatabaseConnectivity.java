@@ -16,15 +16,19 @@ public class DatabaseConnectivity {
         String Url ="jdbc:mysql://localhost:3306/Connection";
         String username="root";
         String password="prabin2062";
-        String Query ="select name from Student where id =1";
+        String Query ="Select * from Student";
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(Url,username,password);
         Statement st = con.createStatement();
         ResultSet rs = st.executeQuery(Query);
-        rs.next();
-        String name = rs.getString("name");
-        System.out.println(name);
-        st.close();
-        con.close();
+
+        String Userdata ="";
+       while (rs.next()) {
+
+           Userdata = rs.getInt(1) + " : "+ rs.getString(2);
+           System.out.println(Userdata);
+       }
+           st.close();
+           con.close();
     }
 }
