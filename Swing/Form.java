@@ -3,5 +3,5 @@ package Swing;
 import javax.swing.*;
 
 public class Form {
-    private JTextField loginFormTextField;
+    private JTextField textField1;
 }
