@@ -1,5 +1,6 @@
 package Swing;
 
+import javax.lang.model.element.Name;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -10,6 +11,12 @@ class PracticeDemo {
         JFrame f = new JFrame("Login Form");
         f.setBackground(Color.RED);
         f.getContentPane().setBackground(new Color(240, 248, 255));
+
+        JMenuBar mb = new JMenuBar();
+
+        JMenu m1 = new JMenu("File");
+        JMenu m2 = new JMenu("Edit");
+
         JLabel l1 = new JLabel("Username:");
         l1.setForeground(Color.BLUE);
         l1.setBounds(60, 60, 80, 20);
@@ -40,8 +47,23 @@ class PracticeDemo {
         JRadioButton jb3 = new JRadioButton("Others");
         jb3.setBounds(60,280,100,20);
 
+        JLabel l5 = new JLabel("Country");
+        l5.setBounds(60,300,100,20);
+
+        String country[] = {"Nepal","India","China","Usa"};
+        JComboBox cb = new JComboBox(country);
+        cb.setBounds(160,300,100,20);
+
         JButton b = new JButton("Login");
-        b.setBounds(160, 320, 100, 30);
+        b.setBounds(160, 340, 100, 30);
+
+        JLabel l6 = new JLabel("Employee Details");
+        l6.setBounds(80,380,120,20);
+        String col[] ={"ID","Name","Address"};
+        String data[][]={{"1","Ram","GDkT"},{"2","Prabin","Gaindakot"},{"3","Sasin","Chitwan"}};
+        JTable jt = new JTable(data,col);
+        JScrollPane sp = new JScrollPane(jt);
+        sp.setBounds(160,410,160,80);
 
         b.addActionListener(new ActionListener() {
             @Override
@@ -70,9 +92,13 @@ class PracticeDemo {
         f.add(c2);
         f.add(c3);
         f.add(l4);
+        f.add(l5);
+        f.add(l6);
         f.add(jb1);
         f.add(jb2);
         f.add(jb3);
+        f.add(cb);
+        f.add(sp);
         f.setSize(1000, 1000);
         f.setLayout(null);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
