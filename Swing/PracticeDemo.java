@@ -17,6 +17,14 @@ class PracticeDemo {
         JMenu m1 = new JMenu("File");
         JMenu m2 = new JMenu("Edit");
 
+        JMenuItem i1 = new JMenuItem("Open");
+        JMenuItem i2 = new JMenuItem("Save");
+
+
+        JMenuItem j1 = new JMenuItem("Open");
+        JMenuItem j2 = new JMenuItem("Save");
+
+
         JLabel l1 = new JLabel("Username:");
         l1.setForeground(Color.BLUE);
         l1.setBounds(60, 60, 80, 20);
@@ -99,6 +107,21 @@ class PracticeDemo {
         f.add(jb3);
         f.add(cb);
         f.add(sp);
+
+// for adding the menu item
+
+        m1.add(i1);
+        m1.add(i2);
+
+        m2.add(j1);
+        m2.add(j2);
+
+        mb.add(m1);
+        mb.add(m2);
+
+        f.setJMenuBar(mb);
+
+//
         f.setSize(1000, 1000);
         f.setLayout(null);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
