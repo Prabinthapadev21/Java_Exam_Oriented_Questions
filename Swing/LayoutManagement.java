@@ -23,6 +23,7 @@ public class LayoutManagement {
     }
 
     public static void main(String[] args) {
+
         new LayoutManagement();
     }
 }
