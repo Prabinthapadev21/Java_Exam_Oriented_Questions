@@ -24,6 +24,7 @@ import java.awt.*;
         f.add(b6);
         f.add(b7);
         f.add(b8);
+
         GridLayout gl = new GridLayout(3,3);
         f.setSize(500,500);
         f.setVisible(true);
