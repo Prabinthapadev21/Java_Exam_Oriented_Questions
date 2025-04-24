@@ -5,8 +5,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-class PracticeDemo {
-    public void Loginform() {
+class LoginForm {
+    public void LoginForm() {
         JFrame f = new JFrame("Login Form");
         f.setBackground(Color.RED);
         f.getContentPane().setBackground(new Color(240, 248, 255));
@@ -78,6 +78,7 @@ class PracticeDemo {
         l5.setBounds(60, 420, 100, 20);
         String country[] = {"Nepal", "India", "China", "USA"};
         JComboBox cb = new JComboBox(country);
+        
         cb.setBounds(160, 420, 150, 20);
 
         JCheckBox cbTerms = new JCheckBox("I agree to the Terms and Conditions");
@@ -133,7 +134,6 @@ class PracticeDemo {
     }
 
     public static void main(String[] args) {
-        PracticeDemo d = new PracticeDemo();
-        d.Loginform();
+        new LoginForm();
     }
 }
