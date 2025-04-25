@@ -86,13 +86,6 @@ class PracticeDemo {
         JButton b = new JButton("Login");
         b.setBounds(160, 500, 100, 30);
 
-        JLabel l6 = new JLabel("Employee Details");
-        l6.setBounds(60, 550, 120, 20);
-        String col[] = {"ID", "Name", "Address"};
-        String data[][] = {{"1", "Ram", "GDkT"}, {"2", "Prabin", "Gaindakot"}, {"3", "Sasin", "Chitwan"}};
-        JTable jt = new JTable(data, col);
-        JScrollPane sp = new JScrollPane(jt);
-        sp.setBounds(160, 580, 300, 80);
 
         b.addActionListener(new ActionListener() {
             @Override
@@ -123,7 +116,6 @@ class PracticeDemo {
         f.add(l5); f.add(cb);
         f.add(cbTerms);
         f.add(b);
-        f.add(l6); f.add(sp);
 
         f.setSize(600, 750);
         f.setLayout(null);
