@@ -12,12 +12,9 @@ public class LoginPage{
         JLabel l1 = new JLabel("Sign up to LMS");
         l1.setBounds(60,60,120,30);
 
-        JTextField t1 = new JTextField();
-        t1.setBounds(160,60,100,30);
-
+        
 //            adding the components to the frame
         f.add(l1);
-        f.add(t1);
 
 
 //            default operations starts
