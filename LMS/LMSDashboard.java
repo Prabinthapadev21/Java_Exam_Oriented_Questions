@@ -4,79 +4,71 @@ import javax.swing.*;
 import java.awt.*;
 
 public class LMSDashboard {
-    JFrame frame;
+    public JFrame frame;
 
     public LMSDashboard() {
-        frame = new JFrame("Library Management System");
-        frame.setSize(900, 700);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame = new JFrame("LMS Dashboard");
+        frame.setSize(900, 600);
         frame.setLayout(null);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // --- MENU BAR ---
-        JMenuBar menuBar = new JMenuBar();
-        JMenu file = new JMenu("File");
-        JMenu edit = new JMenu("Edit");
-        menuBar.add(file);
-        menuBar.add(edit);
-        frame.setJMenuBar(menuBar);
+        // Welcome Label
+        JLabel welcomeLabel = new JLabel("#Welcome to Library Management System");
+        welcomeLabel.setBounds(600, 10, 300, 30);
+        welcomeLabel.setForeground(new Color(0, 128, 128));
+        frame.add(welcomeLabel);
 
-        // --- LOGO & HEADER ---
-        JLabel logo = new JLabel("LIBRARY", JLabel.LEFT); // You can set an icon here
-        logo.setFont(new Font("Arial", Font.BOLD, 24));
-        logo.setBounds(20, 10, 200, 40);
-        frame.add(logo);
+        // Logo
+        ImageIcon logoIcon = new ImageIcon(getClass().getResource("/LMS/images/logo.png"));
+        JLabel logoLabel = new JLabel(logoIcon);
+        logoLabel.setBounds(20, 10, 150, 100);
+        frame.add(logoLabel);
 
-        JLabel welcome = new JLabel("<html><font color='#0099cc'>#Welcome</font> to <br>Library Management System</html>", JLabel.RIGHT);
-        welcome.setBounds(650, 10, 200, 50);
-        frame.add(welcome);
-
-        // --- OPERATION PANEL ---
-        JPanel operationPanel = new JPanel(null);
+        // Operation Panel
+        JPanel operationPanel = new JPanel();
         operationPanel.setBorder(BorderFactory.createTitledBorder("Operation"));
-        operationPanel.setBounds(50, 80, 770, 200);
+        operationPanel.setBounds(20, 120, 850, 200);
+        operationPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 50, 20));
 
-        JButton newBook = createIconButton("New Book", "book_icon.png");
-        newBook.setBounds(50, 50, 150, 100);
-        JButton stats = createIconButton("Statistics", "stats_icon.png");
-        stats.setBounds(300, 50, 150, 100);
-        JButton newStudent = createIconButton("New Student", "student_icon.png");
-        newStudent.setBounds(550, 50, 150, 100);
+        JButton newBookButton = createIconButton("/LMS/images/book_icon.png", "New Book");
+        JButton statsButton = createIconButton("/LMS/images/stats_icon.png", "Statistics");
+        JButton newStudentButton = createIconButton("/LMS/images/student_icon.png", "New Student");
 
-        operationPanel.add(newBook);
-        operationPanel.add(stats);
-        operationPanel.add(newStudent);
-        frame.add(operationPanel);
+        operationPanel.add(newBookButton);
+        operationPanel.add(statsButton);
+        operationPanel.add(newStudentButton);
 
-        // --- ACTION PANEL ---
-        JPanel actionPanel = new JPanel(null);
+        // Action Panel
+        JPanel actionPanel = new JPanel();
         actionPanel.setBorder(BorderFactory.createTitledBorder("Action"));
-        actionPanel.setBounds(50, 300, 770, 200);
+        actionPanel.setBounds(20, 340, 850, 200);
+        actionPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 50, 20));
 
-        JButton issueBook = createIconButton("Issue Book", "issue_icon.png");
-        issueBook.setBounds(50, 50, 150, 100);
-        JButton returnBook = createIconButton("Return Book", "return_icon.png");
-        returnBook.setBounds(300, 50, 150, 100);
-        JButton about = createIconButton("About", "about_icon.png");
-        about.setBounds(550, 50, 150, 100);
+        JButton issueBookButton = createIconButton("/LMS/images/issue_icon.png", "Issue Book");
+        JButton returnBookButton = createIconButton("/LMS/images/return_icon.png", "Return Book");
+        JButton aboutButton = createIconButton("/LMS/images/about_icon.png", "About");
 
-        actionPanel.add(issueBook);
-        actionPanel.add(returnBook);
-        actionPanel.add(about);
+        actionPanel.add(issueBookButton);
+        actionPanel.add(returnBookButton);
+        actionPanel.add(aboutButton);
+
+        // Adding Panels to Frame
+        frame.add(operationPanel);
         frame.add(actionPanel);
 
         frame.setVisible(true);
     }
 
-    private JButton createIconButton(String text, String iconPath) {
-        JButton button = new JButton(text);
-        // Use this line if you have actual icons:
-        // button.setIcon(new ImageIcon(getClass().getResource(iconPath)));
+    private JButton createIconButton(String imagePath, String text) {
+        ImageIcon icon = new ImageIcon(getClass().getResource(imagePath));
+        JButton button = new JButton(text, icon);
         button.setHorizontalTextPosition(SwingConstants.CENTER);
         button.setVerticalTextPosition(SwingConstants.BOTTOM);
+        button.setPreferredSize(new Dimension(150, 150));
         return button;
     }
 
     public static void main(String[] args) {
-        new LMSDashboard();
+        SwingUtilities.invokeLater(LMSDashboard::new);
     }
 }
