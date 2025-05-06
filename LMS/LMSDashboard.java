@@ -2,63 +2,77 @@ package LMS;
 
 import javax.swing.*;
 import java.awt.*;
-import java.net.URL;
 
 public class LMSDashboard {
-    public JFrame frame;
+    JFrame frame;
 
     public LMSDashboard() {
-        frame = new JFrame("LMS Dashboard");
-
-        // Title Label
-        JLabel title = new JLabel("Library Management System", SwingConstants.CENTER);
-        title.setFont(new Font("Arial", Font.BOLD, 24));
-        title.setBounds(150, 20, 500, 40);
-        frame.add(title);
-
-        // Buttons with icons from LMS package
-        JButton booksButton = createIconButton("Books", "book_icon.png");
-        booksButton.setBounds(100, 100, 120, 120);
-
-        JButton membersButton = createIconButton("Members", "member_icon.png");
-        membersButton.setBounds(250, 100, 120, 120);
-
-        JButton issueButton = createIconButton("Issue", "issue_icon.png");
-        issueButton.setBounds(400, 100, 120, 120);
-
-        JButton returnButton = createIconButton("Return", "return_icon.png");
-        returnButton.setBounds(550, 100, 120, 120);
-
-        JButton reportButton = createIconButton("Reports", "report_icon.png");
-        reportButton.setBounds(325, 250, 120, 120);
-
-        // Add buttons to frame
-        frame.add(booksButton);
-        frame.add(membersButton);
-        frame.add(issueButton);
-        frame.add(returnButton);
-        frame.add(reportButton);
-
-        // Frame settings
-        frame.setSize(800, 500);
-        frame.setLayout(null);
-        frame.setVisible(true);
+        frame = new JFrame("Library Management System");
+        frame.setSize(900, 700);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLayout(null);
+
+        // --- MENU BAR ---
+        JMenuBar menuBar = new JMenuBar();
+        JMenu file = new JMenu("File");
+        JMenu edit = new JMenu("Edit");
+        menuBar.add(file);
+        menuBar.add(edit);
+        frame.setJMenuBar(menuBar);
+
+        // --- LOGO & HEADER ---
+        JLabel logo = new JLabel("LIBRARY", JLabel.LEFT); // You can set an icon here
+        logo.setFont(new Font("Arial", Font.BOLD, 24));
+        logo.setBounds(20, 10, 200, 40);
+        frame.add(logo);
+
+        JLabel welcome = new JLabel("<html><font color='#0099cc'>#Welcome</font> to <br>Library Management System</html>", JLabel.RIGHT);
+        welcome.setBounds(650, 10, 200, 50);
+        frame.add(welcome);
+
+        // --- OPERATION PANEL ---
+        JPanel operationPanel = new JPanel(null);
+        operationPanel.setBorder(BorderFactory.createTitledBorder("Operation"));
+        operationPanel.setBounds(50, 80, 770, 200);
+
+        JButton newBook = createIconButton("New Book", "book_icon.png");
+        newBook.setBounds(50, 50, 150, 100);
+        JButton stats = createIconButton("Statistics", "stats_icon.png");
+        stats.setBounds(300, 50, 150, 100);
+        JButton newStudent = createIconButton("New Student", "student_icon.png");
+        newStudent.setBounds(550, 50, 150, 100);
+
+        operationPanel.add(newBook);
+        operationPanel.add(stats);
+        operationPanel.add(newStudent);
+        frame.add(operationPanel);
+
+        // --- ACTION PANEL ---
+        JPanel actionPanel = new JPanel(null);
+        actionPanel.setBorder(BorderFactory.createTitledBorder("Action"));
+        actionPanel.setBounds(50, 300, 770, 200);
+
+        JButton issueBook = createIconButton("Issue Book", "issue_icon.png");
+        issueBook.setBounds(50, 50, 150, 100);
+        JButton returnBook = createIconButton("Return Book", "return_icon.png");
+        returnBook.setBounds(300, 50, 150, 100);
+        JButton about = createIconButton("About", "about_icon.png");
+        about.setBounds(550, 50, 150, 100);
+
+        actionPanel.add(issueBook);
+        actionPanel.add(returnBook);
+        actionPanel.add(about);
+        frame.add(actionPanel);
+
+        frame.setVisible(true);
     }
 
-    private JButton createIconButton(String text, String imageName) {
+    private JButton createIconButton(String text, String iconPath) {
         JButton button = new JButton(text);
-        URL imageURL = getClass().getResource(imageName); // Image inside LMS package
-
-        if (imageURL != null) {
-            ImageIcon icon = new ImageIcon(imageURL);
-            button.setIcon(icon);
-        } else {
-            System.out.println("Image not found: " + imageName);
-        }
-
-        button.setVerticalTextPosition(SwingConstants.BOTTOM);
+        // Use this line if you have actual icons:
+        // button.setIcon(new ImageIcon(getClass().getResource(iconPath)));
         button.setHorizontalTextPosition(SwingConstants.CENTER);
+        button.setVerticalTextPosition(SwingConstants.BOTTOM);
         return button;
     }
 
