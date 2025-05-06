@@ -25,6 +25,21 @@ public class LoginPage{
         JTextField t2 = new JTextField();
         t1.setBounds(60,140,100,30);
 
+        JLabel l4 = new JLabel("Password");
+        l2.setBounds(60,160,100,20);
+
+        JPasswordField t3 = new JPasswordField();
+        t1.setBounds(60,180,100,30);
+
+        JLabel l5 = new JLabel("Confirm Password");
+        l2.setBounds(60,200,100,20);
+
+        JPasswordField t4 = new JPasswordField();
+        t1.setBounds(60,220,100,30);
+
+        JButton b = new JButton("Continue >");
+
+        b.setBounds(160,240,100,30);
 
 //            adding the components to the frame
         f.add(l1);
