@@ -67,6 +67,7 @@ public class UserLogin {
             int rows = pstmt.executeUpdate();
             if (rows > 0) {
                 JOptionPane.showMessageDialog(frame, "User saved successfully!");
+
             }
 
             conn.close();

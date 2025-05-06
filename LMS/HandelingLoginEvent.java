@@ -38,7 +38,13 @@ public class HandelingLoginEvent {
 
             if (rs.next()) {
                 JOptionPane.showMessageDialog(loginPage.frame, "Login successful!");
-            } else {
+
+//                close the login window
+                loginPage.frame.dispose();
+//                open the new dashboard window
+                new LMSDashboard();
+            }
+            else {
                 JOptionPane.showMessageDialog(loginPage.frame, "Invalid credentials.");
             }
 
