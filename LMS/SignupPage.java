@@ -49,7 +49,7 @@ public class SignupPage {
         continueButton = new JButton("Continue >");
         continueButton.setBounds(120, 320, 140, 35);
         continueButton.setBackground(new Color(76, 175, 80));
-        continueButton.setForeground(Color.WHITE);
+        continueButton.setForeground(Color.BLACK);
         continueButton.setFocusPainted(false);
 
         frame.add(title);

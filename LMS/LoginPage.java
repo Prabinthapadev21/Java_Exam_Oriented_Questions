@@ -6,7 +6,7 @@ import java.awt.*;
 public class LoginPage {
     public JTextField usernameField;
     public JPasswordField passwordField;
-    public JButton signinButton;
+    public JButton signInButton;
     public JFrame frame;
 
     public LoginPage() {
@@ -36,11 +36,11 @@ public class LoginPage {
         passwordField = new JPasswordField();
         passwordField.setBounds(60, 150, 250, 30);
 
-        signinButton = new JButton("Sign In");
-        signinButton.setBounds(120, 200, 140, 35);
-        signinButton.setBackground(new Color(33, 150, 243));
-        signinButton.setForeground(Color.WHITE);
-        signinButton.setFocusPainted(false);
+        signInButton = new JButton("Sign In");
+        signInButton.setBounds(120, 200, 140, 35);
+        signInButton.setBackground(new Color(33, 150, 243));
+        signInButton.setForeground(Color.BLACK);
+        signInButton.setFocusPainted(false);
 
         JLabel forgotLabel = new JLabel("Forgot Password?");
         forgotLabel.setBounds(130, 250, 150, 20);
@@ -51,7 +51,7 @@ public class LoginPage {
         frame.add(usernameField);
         frame.add(passLabel);
         frame.add(passwordField);
-        frame.add(signinButton);
+        frame.add(signInButton);
         frame.add(forgotLabel);
 
         frame.setVisible(true);

@@ -5,30 +5,29 @@ import java.awt.event.*;
 import java.sql.*;
 
 public class HandelingEvent {
-
     SignupPage signupPage;
 
     public HandelingEvent(SignupPage signupPage) {
         this.signupPage = signupPage;
-        addListeners();
+        buttonClicked();
     }
-    private void addListeners() {
+
+    public void buttonClicked() {
         signupPage.continueButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                databaseConnectivity();
+                datababaseConnectivity();
             }
         });
     }
 
-    private void databaseConnectivity() {
+    public void datababaseConnectivity() {
         String username = signupPage.usernameField.getText();
         String email = signupPage.emailField.getText();
-        String password = new String(signupPage.passwordField.getPassword());
-        String confirmPassword = new String(signupPage.confirmPasswordField.getPassword());
+        String password = String.valueOf(signupPage.passwordField.getPassword());
+        String confirmPass = String.valueOf(signupPage.confirmPasswordField.getPassword());
 
-        // Validation
-        if (!password.equals(confirmPassword)) {
+        if (!password.equals(confirmPass)) {
             JOptionPane.showMessageDialog(signupPage.frame, "Passwords do not match!");
             return;
         }
@@ -37,17 +36,20 @@ public class HandelingEvent {
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/LMS", "root", "prabin2062");
-
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/LMS", "root", "prabin2062");
             PreparedStatement pst = con.prepareStatement(query);
             pst.setString(1, username);
             pst.setString(2, email);
             pst.setString(3, password);
-
             int rows = pst.executeUpdate();
             if (rows > 0) {
-                JOptionPane.showMessageDialog(signupPage.frame, "User saved successfully!");
+                JOptionPane.showMessageDialog(signupPage.frame, "Signup Successful!");
+
+                // Close Signup window
+                signupPage.frame.dispose();
+
+                // Open Login page
+                new LoginPage();
             }
 
             con.close();
@@ -57,4 +59,3 @@ public class HandelingEvent {
         }
     }
 }
-
