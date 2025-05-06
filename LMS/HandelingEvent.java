@@ -34,7 +34,7 @@ public class HandelingEvent {
             return;
         }
 
-        String query = "INSERT INTO StudentDetails(username, email, password) VALUES (?, ?, ?,?)";
+        String query = "INSERT INTO StudentDetails(username, email, password) VALUES (?, ?, ?)";
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -45,7 +45,6 @@ public class HandelingEvent {
             pst.setString(1, username);
             pst.setString(2, email);
             pst.setString(3, password);
-            pst.setString(4,confirmPassword);
 
             int rows = pst.executeUpdate();
             if (rows > 0) {
