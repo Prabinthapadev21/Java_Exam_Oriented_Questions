@@ -13,7 +13,7 @@ public class HandelingLoginEvent {
     }
 
     private void addListeners() {
-        loginPage.signinButton.addActionListener(new ActionListener() {
+        loginPage.signInButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 handleLogin();
