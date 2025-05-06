@@ -19,7 +19,7 @@ public class LMSDashboard {
         frame.add(welcomeLabel);
 
         // Logo
-        ImageIcon logoIcon = new ImageIcon(getClass().getResource("/LMS/images/logo.png"));
+        ImageIcon logoIcon = new ImageIcon(getClass().getResource("Images/logo.jpeg"));
         JLabel logoLabel = new JLabel(logoIcon);
         logoLabel.setBounds(20, 10, 150, 100);
         frame.add(logoLabel);
@@ -30,9 +30,9 @@ public class LMSDashboard {
         operationPanel.setBounds(20, 120, 850, 200);
         operationPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 50, 20));
 
-        JButton newBookButton = createIconButton("/LMS/images/book_icon.png", "New Book");
-        JButton statsButton = createIconButton("/LMS/images/stats_icon.png", "Statistics");
-        JButton newStudentButton = createIconButton("/LMS/images/student_icon.png", "New Student");
+        JButton newBookButton = createIconButton("Images/newbook.webp", "New Book");
+        JButton statsButton = createIconButton("Images/stats.png", "Statistics");
+        JButton newStudentButton = createIconButton("Images/student.jpeg", "New Student");
 
         operationPanel.add(newBookButton);
         operationPanel.add(statsButton);
@@ -44,9 +44,9 @@ public class LMSDashboard {
         actionPanel.setBounds(20, 340, 850, 200);
         actionPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 50, 20));
 
-        JButton issueBookButton = createIconButton("/LMS/images/issue_icon.png", "Issue Book");
-        JButton returnBookButton = createIconButton("/LMS/images/return_icon.png", "Return Book");
-        JButton aboutButton = createIconButton("/LMS/images/about_icon.png", "About");
+        JButton issueBookButton = createIconButton("Images/book.png", "Issue Book");
+        JButton returnBookButton = createIconButton("Images/return.jpeg", "Return Book");
+        JButton aboutButton = createIconButton("Images/about.png", "About");
 
         actionPanel.add(issueBookButton);
         actionPanel.add(returnBookButton);
