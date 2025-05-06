@@ -1,52 +1,66 @@
 package LMS;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class LoginPage {
-    public JFrame frame;
     public JTextField usernameField;
     public JPasswordField passwordField;
-    public JButton signInButton;
+    public JButton signinButton;
+    public JFrame frame;
+
     public LoginPage() {
+        // Global font setup
+        UIManager.put("Label.font", new Font("Segoe UI", Font.PLAIN, 14));
+        UIManager.put("TextField.font", new Font("Segoe UI", Font.PLAIN, 14));
+        UIManager.put("Button.font", new Font("Segoe UI", Font.BOLD, 14));
+
         frame = new JFrame("Login Page");
+        frame.setSize(400, 350);
+        frame.setLayout(null);
+        frame.getContentPane().setBackground(new Color(240, 248, 255)); // Light blue
 
-        JLabel l1 = new JLabel("Sign in to LMS");
-        l1.setBounds(60, 20, 150, 20);
+        JLabel title = new JLabel("Sign in to LMS");
+        title.setBounds(120, 20, 200, 30);
+        title.setFont(new Font("Segoe UI", Font.BOLD, 20));
 
-        JLabel l2 = new JLabel("Username or email");
-        l2.setBounds(60, 50, 150, 20);
+        JLabel userLabel = new JLabel("Username or Email");
+        userLabel.setBounds(60, 70, 150, 20);
 
         usernameField = new JTextField();
-        usernameField.setBounds(60, 70, 200, 30);
+        usernameField.setBounds(60, 90, 250, 30);
 
-        JLabel l3 = new JLabel("Password");
-        l3.setBounds(60, 110, 150, 20);
+        JLabel passLabel = new JLabel("Password");
+        passLabel.setBounds(60, 130, 150, 20);
 
         passwordField = new JPasswordField();
-        passwordField.setBounds(60, 130, 200, 30);
+        passwordField.setBounds(60, 150, 250, 30);
 
-        signInButton = new JButton("Sign in");
-        signInButton.setBounds(110, 180, 100, 30);
+        signinButton = new JButton("Sign In");
+        signinButton.setBounds(120, 200, 140, 35);
+        signinButton.setBackground(new Color(33, 150, 243));
+        signinButton.setForeground(Color.WHITE);
+        signinButton.setFocusPainted(false);
 
-        JLabel l4 = new JLabel("Forgot Password?");
-        l4.setBounds(110, 220, 150, 20);
+        JLabel forgotLabel = new JLabel("Forgot Password?");
+        forgotLabel.setBounds(130, 250, 150, 20);
+        forgotLabel.setForeground(Color.BLUE);
 
-        frame.add(l1);
-        frame.add(l2);
+        frame.add(title);
+        frame.add(userLabel);
         frame.add(usernameField);
-        frame.add(l3);
+        frame.add(passLabel);
         frame.add(passwordField);
-        frame.add(signInButton);
-        frame.add(l4);
+        frame.add(signinButton);
+        frame.add(forgotLabel);
 
-        frame.setSize(350, 300);
-        frame.setLayout(null);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        new HandelingLoginEvent(this);
+
+        new HandelingLoginEvent(this); // connect event handling
     }
 
     public static void main(String[] args) {
-         new LoginPage();
+        new LoginPage();
     }
 }
