@@ -5,7 +5,7 @@ import javax.swing.*;
 public class SignupPage {
 
     public SignupPage() {
-        JFrame f = new JFrame("Login Page");
+        JFrame f = new JFrame("Signup Page");
 
         JLabel l1 = new JLabel("Sign up to LMS");
         l1.setBounds(60, 20, 200, 30);
