@@ -6,6 +6,10 @@ import java.sql.*;
 import java.awt.event.*;
 public class HandelingEvent extends SignupPage{
     public HandelingEvent(SignupPage signupPage) {
+        this.usernameField=signupPage.usernameField;
+        this.emailField=signupPage.emailField;
+        this.passwordField=signupPage.passwordField;
+        this.confirmPasswordField=signupPage.confirmPasswordField;
     }
     public HandelingEvent(LoginPage loginPage)
     {
@@ -14,9 +18,10 @@ public class HandelingEvent extends SignupPage{
 
     public void datababaseConnectivity()
     {
-        String username="";
-        String password ="";
-        String email ="";
+        String username=usernameField.getText();
+        String password =;
+        String email =;
+        String confirmpass=;
         String query = "Insert into studentDetails(username,email,password)";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -25,6 +30,7 @@ public class HandelingEvent extends SignupPage{
             pst.setString(1,username);
             pst.setString(2,email);
             pst.setString(3,password);
+            pst.setString(4,confirmpass);
 
             int rows = pst.executeUpdate();
             if (rows > 0) {
@@ -34,7 +40,7 @@ public class HandelingEvent extends SignupPage{
             con.close();
         } catch (Exception ex) {
             ex.printStackTrace();
-
+            JOptionPane.showMessageDialog(frame, "Error: " + ex.getMessage());
         }
     }
     public static void main(String[] args) {
