@@ -1,49 +1,61 @@
 package LMS;
-import com.mysql.cj.jdbc.Driver;
 
 import javax.swing.*;
-import java.sql.*;
 import java.awt.event.*;
-public class HandelingEvent extends SignupPage{
+import java.sql.*;
+
+public class HandelingEvent {
+
+    SignupPage signupPage;
+
     public HandelingEvent(SignupPage signupPage) {
-        this.usernameField=signupPage.usernameField;
-        this.emailField=signupPage.emailField;
-        this.passwordField=signupPage.passwordField;
-        this.confirmPasswordField=signupPage.confirmPasswordField;
-    }
-    public HandelingEvent(LoginPage loginPage)
-    {
-
+        this.signupPage = signupPage;
+        addListeners();
     }
 
-    public void datababaseConnectivity()
-    {
-        String username=usernameField.getText();
-        String password =;
-        String email =;
-        String confirmpass=;
-        String query = "Insert into studentDetails(username,email,password)";
+    private void addListeners() {
+        signupPage.continueButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                databaseConnectivity();
+            }
+        });
+    }
+
+    private void databaseConnectivity() {
+        String username = signupPage.usernameField.getText();
+        String email = signupPage.emailField.getText();
+        String password = new String(signupPage.passwordField.getPassword());
+        String confirmPassword = new String(signupPage.confirmPasswordField.getPassword());
+
+        // Validation
+        if (!password.equals(confirmPassword)) {
+            JOptionPane.showMessageDialog(signupPage.frame, "Passwords do not match!");
+            return;
+        }
+
+        String query = "INSERT INTO StudentDetails(username, email, password) VALUES (?, ?, ?,?)";
+
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Login_schema","root","prabin2062");
+            Connection con = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/LMS", "root", "prabin2062");
+
             PreparedStatement pst = con.prepareStatement(query);
-            pst.setString(1,username);
-            pst.setString(2,email);
-            pst.setString(3,password);
-            pst.setString(4,confirmpass);
+            pst.setString(1, username);
+            pst.setString(2, email);
+            pst.setString(3, password);
+            pst.setString(4,confirmPassword);
 
             int rows = pst.executeUpdate();
             if (rows > 0) {
-                JOptionPane.showMessageDialog(frame, "User saved successfully!");
+                JOptionPane.showMessageDialog(signupPage.frame, "User saved successfully!");
             }
 
             con.close();
         } catch (Exception ex) {
             ex.printStackTrace();
-            JOptionPane.showMessageDialog(frame, "Error: " + ex.getMessage());
+            JOptionPane.showMessageDialog(signupPage.frame, "Error: " + ex.getMessage());
         }
-    }
-    public static void main(String[] args) {
-        
     }
 }

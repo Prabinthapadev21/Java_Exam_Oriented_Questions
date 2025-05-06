@@ -44,7 +44,6 @@ public class LoginPage {
         frame.setLayout(null);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        new HandelingEvent(this);
     }
 
     public static void main(String[] args) {
