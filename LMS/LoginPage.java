@@ -7,7 +7,6 @@ public class LoginPage {
     public JTextField usernameField;
     public JPasswordField passwordField;
     public JButton signInButton;
-
     public LoginPage() {
         frame = new JFrame("Login Page");
 
@@ -44,6 +43,7 @@ public class LoginPage {
         frame.setLayout(null);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        new HandelingLoginEvent(this);
     }
 
     public static void main(String[] args) {

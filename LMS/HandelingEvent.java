@@ -12,7 +12,6 @@ public class HandelingEvent {
         this.signupPage = signupPage;
         addListeners();
     }
-
     private void addListeners() {
         signupPage.continueButton.addActionListener(new ActionListener() {
             @Override
@@ -58,3 +57,4 @@ public class HandelingEvent {
         }
     }
 }
+
