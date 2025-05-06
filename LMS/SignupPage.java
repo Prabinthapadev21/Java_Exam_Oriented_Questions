@@ -2,46 +2,42 @@ package LMS;
 
 import javax.swing.*;
 
-public class LoginPage{
+public class SignupPage {
 
-    public LoginPage()
-    {
+    public SignupPage() {
         JFrame f = new JFrame("Login Page");
 
-
         JLabel l1 = new JLabel("Sign up to LMS");
-        l1.setBounds(60,60,120,30);
+        l1.setBounds(60, 20, 200, 30);
 
         JLabel l2 = new JLabel("Username");
-        l2.setBounds(60,80,100,20);
+        l2.setBounds(60, 60, 100, 20);
 
         JTextField t1 = new JTextField();
-        t1.setBounds(60,100,100,30);
-
+        t1.setBounds(60, 80, 200, 30);
 
         JLabel l3 = new JLabel("Email");
-        l2.setBounds(60,120,100,20);
+        l3.setBounds(60, 120, 100, 20);
 
         JTextField t2 = new JTextField();
-        t1.setBounds(60,140,100,30);
+        t2.setBounds(60, 140, 200, 30);
 
         JLabel l4 = new JLabel("Password");
-        l2.setBounds(60,160,100,20);
+        l4.setBounds(60, 180, 100, 20);
 
         JPasswordField t3 = new JPasswordField();
-        t1.setBounds(60,180,100,30);
+        t3.setBounds(60, 200, 200, 30);
 
         JLabel l5 = new JLabel("Confirm Password");
-        l2.setBounds(60,200,100,20);
+        l5.setBounds(60, 240, 150, 20);
 
         JPasswordField t4 = new JPasswordField();
-        t1.setBounds(60,220,100,30);
+        t4.setBounds(60, 260, 200, 30);
 
         JButton b = new JButton("Continue >");
+        b.setBounds(100, 310, 120, 30);
 
-        b.setBounds(160,240,100,30);
-
-//            adding the components to the frame
+        // Add components to frame
         f.add(l1);
         f.add(l2);
         f.add(t1);
@@ -53,16 +49,13 @@ public class LoginPage{
         f.add(t4);
         f.add(b);
 
-//            default operations starts
-        f.setSize(500,400);
-        f.setVisible(true);
+        f.setSize(400, 400);
         f.setLayout(null);
+        f.setVisible(true);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//            default operations closes
     }
 
     public static void main(String[] args) {
-        new LoginPage();
+        new SignupPage();
     }
 }
-
