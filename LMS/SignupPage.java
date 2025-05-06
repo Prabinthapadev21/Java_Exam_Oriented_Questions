@@ -53,6 +53,8 @@ public class SignupPage {
         f.setLayout(null);
         f.setVisible(true);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        new HandelingEvent(this);
     }
 
     public static void main(String[] args) {
