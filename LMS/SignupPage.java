@@ -1,68 +1,72 @@
 package LMS;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class SignupPage {
-
-    public JFrame frame;
     public JTextField usernameField;
     public JTextField emailField;
     public JPasswordField passwordField;
     public JPasswordField confirmPasswordField;
     public JButton continueButton;
+    public JFrame frame;
 
     public SignupPage() {
+        // Set global font
+        UIManager.put("Label.font", new Font("Segoe UI", Font.PLAIN, 14));
+        UIManager.put("TextField.font", new Font("Segoe UI", Font.PLAIN, 14));
+        UIManager.put("Button.font", new Font("Segoe UI", Font.BOLD, 14));
+
         frame = new JFrame("Signup Page");
+        frame.setSize(400, 450);
+        frame.setLayout(null);
+        frame.getContentPane().setBackground(new Color(245, 245, 255)); // Very light purple
 
-        JLabel l1 = new JLabel("Sign up to LMS");
-        l1.setBounds(60, 20, 200, 30);
+        JLabel title = new JLabel("Sign up to LMS");
+        title.setBounds(110, 20, 200, 30);
+        title.setFont(new Font("Segoe UI", Font.BOLD, 20));
 
-        JLabel l2 = new JLabel("Username");
-        l2.setBounds(60, 60, 100, 20);
-
+        JLabel userLabel = new JLabel("Username");
+        userLabel.setBounds(60, 60, 150, 20);
         usernameField = new JTextField();
-        usernameField.setBounds(60, 80, 200, 30);
+        usernameField.setBounds(60, 80, 250, 30);
 
-        JLabel l3 = new JLabel("Email");
-        l3.setBounds(60, 120, 100, 20);
-
+        JLabel emailLabel = new JLabel("Email");
+        emailLabel.setBounds(60, 120, 150, 20);
         emailField = new JTextField();
-        emailField.setBounds(60, 140, 200, 30);
+        emailField.setBounds(60, 140, 250, 30);
 
-        JLabel l4 = new JLabel("Password");
-        l4.setBounds(60, 180, 100, 20);
-
+        JLabel passLabel = new JLabel("Password");
+        passLabel.setBounds(60, 180, 150, 20);
         passwordField = new JPasswordField();
-        passwordField.setBounds(60, 200, 200, 30);
+        passwordField.setBounds(60, 200, 250, 30);
 
-        JLabel l5 = new JLabel("Confirm Password");
-        l5.setBounds(60, 240, 150, 20);
-
+        JLabel confirmLabel = new JLabel("Confirm Password");
+        confirmLabel.setBounds(60, 240, 150, 20);
         confirmPasswordField = new JPasswordField();
-        confirmPasswordField.setBounds(60, 260, 200, 30);
+        confirmPasswordField.setBounds(60, 260, 250, 30);
 
         continueButton = new JButton("Continue >");
-        continueButton.setBounds(100, 310, 120, 30);
+        continueButton.setBounds(120, 320, 140, 35);
+        continueButton.setBackground(new Color(76, 175, 80));
+        continueButton.setForeground(Color.WHITE);
+        continueButton.setFocusPainted(false);
 
-        // Add components to frame
-        frame.add(l1);
-        frame.add(l2);
+        frame.add(title);
+        frame.add(userLabel);
         frame.add(usernameField);
-        frame.add(l3);
+        frame.add(emailLabel);
         frame.add(emailField);
-        frame.add(l4);
+        frame.add(passLabel);
         frame.add(passwordField);
-        frame.add(l5);
+        frame.add(confirmLabel);
         frame.add(confirmPasswordField);
         frame.add(continueButton);
 
-        frame.setSize(400, 400);
-        frame.setLayout(null);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // Pass reference to event handler
-        new HandelingEvent(this);
+        new HandelingEvent(this); // connect event handling
     }
 
     public static void main(String[] args) {
