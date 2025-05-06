@@ -4,8 +4,15 @@ import javax.swing.*;
 
 public class SignupPage {
 
+    public JFrame frame;
+    public JTextField usernameField;
+    public JTextField emailField;
+    public JPasswordField passwordField;
+    public JPasswordField confirmPasswordField;
+    public JButton continueButton;
+
     public SignupPage() {
-        JFrame f = new JFrame("Signup Page");
+        frame = new JFrame("Signup Page");
 
         JLabel l1 = new JLabel("Sign up to LMS");
         l1.setBounds(60, 20, 200, 30);
@@ -13,47 +20,48 @@ public class SignupPage {
         JLabel l2 = new JLabel("Username");
         l2.setBounds(60, 60, 100, 20);
 
-        JTextField t1 = new JTextField();
-        t1.setBounds(60, 80, 200, 30);
+        usernameField = new JTextField();
+        usernameField.setBounds(60, 80, 200, 30);
 
         JLabel l3 = new JLabel("Email");
         l3.setBounds(60, 120, 100, 20);
 
-        JTextField t2 = new JTextField();
-        t2.setBounds(60, 140, 200, 30);
+        emailField = new JTextField();
+        emailField.setBounds(60, 140, 200, 30);
 
         JLabel l4 = new JLabel("Password");
         l4.setBounds(60, 180, 100, 20);
 
-        JPasswordField t3 = new JPasswordField();
-        t3.setBounds(60, 200, 200, 30);
+        passwordField = new JPasswordField();
+        passwordField.setBounds(60, 200, 200, 30);
 
         JLabel l5 = new JLabel("Confirm Password");
         l5.setBounds(60, 240, 150, 20);
 
-        JPasswordField t4 = new JPasswordField();
-        t4.setBounds(60, 260, 200, 30);
+        confirmPasswordField = new JPasswordField();
+        confirmPasswordField.setBounds(60, 260, 200, 30);
 
-        JButton b = new JButton("Continue >");
-        b.setBounds(100, 310, 120, 30);
+        continueButton = new JButton("Continue >");
+        continueButton.setBounds(100, 310, 120, 30);
 
         // Add components to frame
-        f.add(l1);
-        f.add(l2);
-        f.add(t1);
-        f.add(l3);
-        f.add(t2);
-        f.add(l4);
-        f.add(t3);
-        f.add(l5);
-        f.add(t4);
-        f.add(b);
+        frame.add(l1);
+        frame.add(l2);
+        frame.add(usernameField);
+        frame.add(l3);
+        frame.add(emailField);
+        frame.add(l4);
+        frame.add(passwordField);
+        frame.add(l5);
+        frame.add(confirmPasswordField);
+        frame.add(continueButton);
 
-        f.setSize(400, 400);
-        f.setLayout(null);
-        f.setVisible(true);
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(400, 400);
+        frame.setLayout(null);
+        frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+        // Pass reference to event handler
         new HandelingEvent(this);
     }
 
