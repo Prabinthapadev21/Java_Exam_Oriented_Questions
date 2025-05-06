@@ -1,38 +1,32 @@
 package LMS;
 import javax.swing.*;
+
 public class LoginPage {
-    public LoginPage()
-    {
+    public LoginPage() {
         JFrame f = new JFrame("Login Page");
 
         JLabel l1 = new JLabel("Sign in to LMS");
-        l1.setBounds(60,60,150,20);
+        l1.setBounds(60, 20, 150, 20);
 
         JLabel l2 = new JLabel("Username or email");
-        l2.setBounds(60,80,150,20);
+        l2.setBounds(60, 50, 150, 20);
 
         JTextField t1 = new JTextField();
-        t1.setBounds(60,100,150,30);
+        t1.setBounds(60, 70, 200, 30);
 
+        JLabel l3 = new JLabel("Password");
+        l3.setBounds(60, 110, 150, 20);
 
-        JLabel l3 = new JLabel("Username or email");
-        l3.setBounds(60,120,150,20);
-
-        JTextField t2 = new JTextField();
-        t2.setBounds(60,140,150,30);
-
+        JPasswordField t2 = new JPasswordField();
+        t2.setBounds(60, 130, 200, 30);
 
         JButton b = new JButton("Sign in");
+        b.setBounds(110, 180, 100, 30);
 
-        b.setBounds(150,160,100,30);
+        JLabel l4 = new JLabel("Forgot Password?");
+        l4.setBounds(110, 220, 150, 20);
 
-        JLabel l4 = new JLabel("Forget Password ?");
-
-        l4.setBounds(170,180,100,30);
-
-
-//        adding the components into the frame.
-
+        // Adding components to the frame
         f.add(l1);
         f.add(l2);
         f.add(t1);
@@ -41,9 +35,8 @@ public class LoginPage {
         f.add(b);
         f.add(l4);
 
-
-//        default operations
-        f.setSize(200,200);
+        // Frame settings
+        f.setSize(350, 300);
         f.setLayout(null);
         f.setVisible(true);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
