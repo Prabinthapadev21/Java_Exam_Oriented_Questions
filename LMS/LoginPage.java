@@ -43,7 +43,15 @@ public class LoginPage{
 
 //            adding the components to the frame
         f.add(l1);
-
+        f.add(l2);
+        f.add(t1);
+        f.add(l3);
+        f.add(t2);
+        f.add(l4);
+        f.add(t3);
+        f.add(l5);
+        f.add(t4);
+        f.add(b);
 
 //            default operations starts
         f.setSize(500,400);
