@@ -15,6 +15,7 @@ public class Dashboard {
         frame.setLayout(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+
         // Menu Bar
         JMenuBar mb = new JMenuBar();
         JMenu m1 = new JMenu("File");
@@ -71,6 +72,11 @@ public class Dashboard {
         newBook.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                // Desktop Pane for internal frames
+                desktopPane = new JDesktopPane();
+                desktopPane.setBounds(0, 0, 750, 400);
+                frame.add(desktopPane);
                 JInternalFrame frame1 = new JInternalFrame("Add New Book", true, true, true, true);
                 frame1.setLayout(null);
                 frame1.setSize(500, 400);
@@ -140,6 +146,7 @@ public class Dashboard {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         frame1.dispose();
+                        new Dashboard();
                     }
                 });
 
