@@ -26,7 +26,7 @@ public class LMSDashboard {
         logo.setBounds(20, 10, 200, 40);
         frame.add(logo);
 
-        JLabel welcome = new JLabel("<html><font color='#0099cc'>#Welcome</font> to <br>Library Management System</html>", JLabel.RIGHT);
+        JLabel welcome = new JLabel("<html><font color='#0099cc'>Welcome</font> to <br>Library Management System</html>", JLabel.RIGHT);
         welcome.setBounds(650, 10, 200, 50);
         frame.add(welcome);
 
