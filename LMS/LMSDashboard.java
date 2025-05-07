@@ -148,10 +148,19 @@ public class LMSDashboard {
                 backBtn.setBounds(310, 280, 100, 30);
                 frame1.add(backBtn);
 
+//                dispose for the back button
                 backBtn.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         frame1.dispose();
+                    }
+                });
+
+//                for the add button
+                addBtn.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        newBookConnection();
                     }
                 });
 
@@ -177,23 +186,23 @@ public class LMSDashboard {
     }
     public void newBookConnection() {
         try {
-            String bookid = t1.getText();
+            int  bookid = Integer.parseInt(t1.getText());
             String bookname = t2.getText();
             String edition = t3.getText();
             String publisher = t4.getText();
-            String price = t5.getText();
-            String page = t6.getText();
+            int price =Integer.parseInt( t5.getText());
+            int  page = Integer.parseInt(t6.getText());
 
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/LMS", "root", "prabin2062");
             String query = "INSERT INTO books(bookid, bookname, edition, publisher, price, page) VALUES (?, ?, ?, ?, ?, ?)";
             PreparedStatement pst = con.prepareStatement(query);
-            pst.setString(1, bookid);
+            pst.setInt(1, bookid);
             pst.setString(2, bookname);
             pst.setString(3, edition);
             pst.setString(4, publisher);
-            pst.setString(5, price);
-            pst.setString(6, page);
+            pst.setInt(5, price);
+            pst.setInt(6, page);
 
             // Execute the insert
             int rowsAffected = pst.executeUpdate();
@@ -203,7 +212,7 @@ public class LMSDashboard {
             } else {
                 System.out.println("Book insertion failed.");
             }
-            
+
             pst.close();
             con.close();
         } catch (Exception ex) {
