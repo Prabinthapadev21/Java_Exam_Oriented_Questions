@@ -1,5 +1,6 @@
 package Swing;
 import javax.swing.*;
+import java.awt.*;
 
 public class Dashboard {
     public JFrame frame;
@@ -12,7 +13,7 @@ public class Dashboard {
 
     public Dashboard() {
         frame = new JFrame("Library Management System");
-        frame.setSize(600, 400);
+        frame.setSize(700, 400);
         frame.setLayout(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -29,29 +30,41 @@ public class Dashboard {
         mb.add(m2);
         frame.setJMenuBar(mb);
 
-        // Buttons with proper spacing
+//        for lms logo
+        JLabel logo = new JLabel("LMS",JLabel.LEFT);
+        logo.setFont(new Font("Arial", Font.BOLD, 24));
+        logo.setBounds(20, 10, 200, 40);
+        frame.add(logo);
+
+        // Row 1 Buttons
         newBook = new JButton("New Book");
-        newBook.setBounds(50, 50, 150, 40);
+        newBook.setBounds(50, 50, 180, 60);
         frame.add(newBook);
 
         report = new JButton("Generate Report");
-        report.setBounds(220, 50, 150, 40);
+        report.setBounds(260, 50, 180, 60);
         frame.add(report);
 
         newStudent = new JButton("New Student");
-        newStudent.setBounds(390, 50, 150, 40);
+        newStudent.setBounds(470, 50, 180, 60);
         frame.add(newStudent);
 
+        // Separator between rows
+        JSeparator separator = new JSeparator();
+        separator.setBounds(30, 130, 630, 2);
+        frame.add(separator);
+
+        // Row 2 Buttons
         issueBook = new JButton("Issue Book");
-        issueBook.setBounds(50, 120, 150, 40);
+        issueBook.setBounds(50, 150, 180, 60);
         frame.add(issueBook);
 
         returnBook = new JButton("Return Book");
-        returnBook.setBounds(220, 120, 150, 40);
+        returnBook.setBounds(260, 150, 180, 60);
         frame.add(returnBook);
 
         about = new JButton("About");
-        about.setBounds(390, 120, 150, 40);
+        about.setBounds(470, 150, 180, 60);
         frame.add(about);
 
         frame.setVisible(true);
