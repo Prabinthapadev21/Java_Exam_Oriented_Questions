@@ -175,33 +175,42 @@ public class LMSDashboard {
             }
         });
     }
-    public void newBookConnection()
-    {
+    public void newBookConnection() {
         try {
-            String bookid=t1.getText();
-            String bookname=t2.getText();
-            String edition=t3.getText();
-            String publisher=t4.getText();
-            String price=t5.getText();
-            String page=t6.getText();
+            String bookid = t1.getText();
+            String bookname = t2.getText();
+            String edition = t3.getText();
+            String publisher = t4.getText();
+            String price = t5.getText();
+            String page = t6.getText();
 
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/LMS","root","prabin2062");
-            String query = "Insert into books(bookid,bookname,edition,publisher,price,page) values(?,?,?,?,?,?)";
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/LMS", "root", "prabin2062");
+            String query = "INSERT INTO books(bookid, bookname, edition, publisher, price, page) VALUES (?, ?, ?, ?, ?, ?)";
             PreparedStatement pst = con.prepareStatement(query);
-            pst.setString(1,bookid);
-            pst.setString(2,bookname);
-            pst.setString(3,edition);
-            pst.setString(4,publisher);
-            pst.setString(5,price);
-            pst.setString(6,page);
-        }
-        catch (Exception ex)
-        {
+            pst.setString(1, bookid);
+            pst.setString(2, bookname);
+            pst.setString(3, edition);
+            pst.setString(4, publisher);
+            pst.setString(5, price);
+            pst.setString(6, page);
+
+            // Execute the insert
+            int rowsAffected = pst.executeUpdate();
+
+            if (rowsAffected > 0) {
+                System.out.println("Book inserted successfully.");
+            } else {
+                System.out.println("Book insertion failed.");
+            }
+            
+            pst.close();
+            con.close();
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
-
     }
+
 
     public static void main(String[] args) {
         new LMSDashboard();
