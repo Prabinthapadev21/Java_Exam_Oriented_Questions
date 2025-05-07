@@ -6,12 +6,8 @@ import java.awt.event.ActionListener;
 
 public class Dashboard {
     public JFrame frame;
-    public JButton newBook;
-    public JButton report;
-    public JButton newStudent;
-    public JButton issueBook;
-    public JButton returnBook;
-    public JButton about;
+    public JDesktopPane desktopPane;
+    public JButton newBook, report, newStudent, issueBook, returnBook, about;
 
     public Dashboard() {
         frame = new JFrame("Library Management System");
@@ -75,12 +71,88 @@ public class Dashboard {
         newBook.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JDesktopPane d = new JDesktopPane();
-                JInternalFrame frame1 = new JInternalFrame("Add new Book",true,true,true,true);
-                frame1.setSize(400,400);
-                JLabel fl1 = new JLabel("")
+                JInternalFrame frame1 = new JInternalFrame("Add New Book", true, true, true, true);
+                frame1.setLayout(null);
+                frame1.setSize(500, 400);
+                frame1.setVisible(true);
+
+                // Labels
+                JLabel l1 = new JLabel("Book ID:");
+                l1.setBounds(50, 30, 100, 25);
+                frame1.add(l1);
+
+                JLabel l2 = new JLabel("Name:");
+                l2.setBounds(50, 70, 100, 25);
+                frame1.add(l2);
+
+                JLabel l3 = new JLabel("Edition:");
+                l3.setBounds(50, 110, 100, 25);
+                frame1.add(l3);
+
+                JLabel l4 = new JLabel("Publisher:");
+                l4.setBounds(50, 150, 100, 25);
+                frame1.add(l4);
+
+                JLabel l5 = new JLabel("Price:");
+                l5.setBounds(50, 190, 100, 25);
+                frame1.add(l5);
+
+                JLabel l6 = new JLabel("Pages:");
+                l6.setBounds(50, 230, 100, 25);
+                frame1.add(l6);
+
+                // TextFields
+                JTextField t1 = new JTextField();
+                t1.setBounds(160, 30, 250, 25);
+                frame1.add(t1);
+
+                JTextField t2 = new JTextField();
+                t2.setBounds(160, 70, 250, 25);
+                frame1.add(t2);
+
+                JTextField t3 = new JTextField();
+                t3.setBounds(160, 110, 250, 25);
+                frame1.add(t3);
+
+                JTextField t4 = new JTextField();
+                t4.setBounds(160, 150, 250, 25);
+                frame1.add(t4);
+
+                JTextField t5 = new JTextField();
+                t5.setBounds(160, 190, 250, 25);
+                frame1.add(t5);
+
+                JTextField t6 = new JTextField();
+                t6.setBounds(160, 230, 250, 25);
+                frame1.add(t6);
+
+                // Buttons
+                JButton addBtn = new JButton("Add");
+                addBtn.setBounds(160, 280, 100, 30);
+                frame1.add(addBtn);
+
+                JButton backBtn = new JButton("Back");
+                backBtn.setBounds(310, 280, 100, 30);
+                frame1.add(backBtn);
+
+                // Back button closes the internal frame
+                backBtn.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        frame1.dispose();
+                    }
+                });
+
+                // Add internal frame to desktopPane
+                desktopPane.add(frame1);
+                try {
+                    frame1.setSelected(true);
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
             }
         });
+
     }
 
     public static void main(String[] args) {
