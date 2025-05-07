@@ -1,7 +1,6 @@
 package Swing;
 import javax.swing.*;
-import java.sql.*;
-import java.awt.event.*;
+
 public class Dashboard {
     public JFrame frame;
     public JButton newBook;
@@ -10,19 +9,19 @@ public class Dashboard {
     public JButton issueBook;
     public JButton returnBook;
     public JButton about;
-    public Dashboard()
-    {
+
+    public Dashboard() {
         frame = new JFrame("Library Management System");
-        frame.setSize(900,900);
-        frame.setVisible(true);
+        frame.setSize(600, 400);
         frame.setLayout(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+        // Menu Bar
         JMenuBar mb = new JMenuBar();
         JMenu m1 = new JMenu("File");
         JMenu m2 = new JMenu("Edit");
-        JMenuItem mi1 = new JMenuItem("new");
-        JMenuItem mi2 = new JMenuItem("save");
+        JMenuItem mi1 = new JMenuItem("New");
+        JMenuItem mi2 = new JMenuItem("Save");
 
         m1.add(mi1);
         m2.add(mi2);
@@ -30,32 +29,32 @@ public class Dashboard {
         mb.add(m2);
         frame.setJMenuBar(mb);
 
-//        adding the buttons into the frame
-
+        // Buttons with proper spacing
         newBook = new JButton("New Book");
-        newBook.setBounds(80,80,100,40);
+        newBook.setBounds(50, 50, 150, 40);
         frame.add(newBook);
 
         report = new JButton("Generate Report");
-        report.setBounds(120,80,100,40);
+        report.setBounds(220, 50, 150, 40);
         frame.add(report);
 
         newStudent = new JButton("New Student");
-        newStudent.setBounds(160,80,100,40);
+        newStudent.setBounds(390, 50, 150, 40);
         frame.add(newStudent);
 
-
         issueBook = new JButton("Issue Book");
-        issueBook.setBounds(80,120,100,40);
+        issueBook.setBounds(50, 120, 150, 40);
         frame.add(issueBook);
 
         returnBook = new JButton("Return Book");
-        returnBook.setBounds(120,80,100,40);
+        returnBook.setBounds(220, 120, 150, 40);
         frame.add(returnBook);
 
         about = new JButton("About");
-        about.setBounds(160,80,100,40);
+        about.setBounds(390, 120, 150, 40);
         frame.add(about);
+
+        frame.setVisible(true);
     }
 
     public static void main(String[] args) {
