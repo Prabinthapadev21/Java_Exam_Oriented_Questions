@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 public class Dashboard {
     public JFrame frame;
     public JDesktopPane desktopPane;
-    public JButton newBook, report, newStudent, issueBook, returnBook, about;
+    public JButton newBook, report, newStudent, issueBook, returnBook, about,logout;
 
     public Dashboard() {
         frame = new JFrame("Library Management System");
@@ -15,6 +15,10 @@ public class Dashboard {
         frame.setLayout(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+        // Desktop Pane
+        desktopPane = new JDesktopPane();
+        desktopPane.setBounds(0, 0, 750, 400);
+        frame.add(desktopPane);
 
         // Menu Bar
         JMenuBar mb = new JMenuBar();
@@ -33,54 +37,53 @@ public class Dashboard {
         JLabel logo = new JLabel("LMS", JLabel.LEFT);
         logo.setFont(new Font("Arial", Font.BOLD, 24));
         logo.setBounds(20, 10, 100, 30);
-        frame.add(logo);
+        desktopPane.add(logo);
 
         // Row 1 Buttons
         newBook = new JButton("New Book");
         newBook.setBounds(50, 60, 200, 60);
-        frame.add(newBook);
+        desktopPane.add(newBook);
 
         report = new JButton("Generate Report");
         report.setBounds(270, 60, 200, 60);
-        frame.add(report);
+        desktopPane.add(report);
 
         newStudent = new JButton("New Student");
         newStudent.setBounds(490, 60, 200, 60);
-        frame.add(newStudent);
+        desktopPane.add(newStudent);
 
         // Separator
         JSeparator separator = new JSeparator();
         separator.setBounds(30, 140, 670, 2);
-        frame.add(separator);
+        desktopPane.add(separator);
 
         // Row 2 Buttons
         issueBook = new JButton("Issue Book");
         issueBook.setBounds(50, 160, 200, 60);
-        frame.add(issueBook);
+        desktopPane.add(issueBook);
 
         returnBook = new JButton("Return Book");
         returnBook.setBounds(270, 160, 200, 60);
-        frame.add(returnBook);
+        desktopPane.add(returnBook);
 
         about = new JButton("About");
         about.setBounds(490, 160, 200, 60);
-        frame.add(about);
+        desktopPane.add(about);
+
+        JButton logout = new JButton("Logout");
+        logout.setBounds(600, 240, 100, 30);
+        desktopPane.add(logout);
+
 
         frame.setVisible(true);
 
-
+        // New Book Button Action
         newBook.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.dispose();
-                // Desktop Pane for internal frames
-                desktopPane = new JDesktopPane();
-                desktopPane.setBounds(0, 0, 750, 400);
-                frame.add(desktopPane);
                 JInternalFrame frame1 = new JInternalFrame("Add New Book", true, true, true, true);
                 frame1.setLayout(null);
                 frame1.setSize(500, 400);
-                frame1.setVisible(true);
 
                 // Labels
                 JLabel l1 = new JLabel("Book ID:");
@@ -141,17 +144,25 @@ public class Dashboard {
                 backBtn.setBounds(310, 280, 100, 30);
                 frame1.add(backBtn);
 
-                // Back button closes the internal frame
                 backBtn.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         frame1.dispose();
-                        new Dashboard();
                     }
                 });
 
                 // Add internal frame to desktopPane
                 desktopPane.add(frame1);
+
+                // Centering the internal frame
+                Dimension desktopSize = desktopPane.getSize();
+                Dimension jInternalFrameSize = frame1.getSize();
+                int x = (desktopSize.width - jInternalFrameSize.width) / 2;
+                int y = (desktopSize.height - jInternalFrameSize.height) / 2;
+                frame1.setLocation(x, y);
+
+                frame1.setVisible(true);
+
                 try {
                     frame1.setSelected(true);
                 } catch (Exception ex) {
@@ -159,7 +170,6 @@ public class Dashboard {
                 }
             }
         });
-
     }
 
     public static void main(String[] args) {
