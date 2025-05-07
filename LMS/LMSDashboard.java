@@ -1,13 +1,17 @@
 package LMS;
+import StringFunction.StringSearchingIndexOf;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.*;
 
 public class LMSDashboard {
     public JFrame frame;
     public JDesktopPane desktopPane;
     public JButton newBook, report, newStudent, issueBook, returnBook, about,logout;
+    public JTextField t1,t2,t3,t4,t5,t6;
 
     public LMSDashboard() {
         frame = new JFrame("Library Management System");
@@ -170,6 +174,33 @@ public class LMSDashboard {
                 }
             }
         });
+    }
+    public void newBookConnection()
+    {
+        try {
+            String bookid=t1.getText();
+            String bookname=t2.getText();
+            String edition=t3.getText();
+            String publisher=t4.getText();
+            String price=t5.getText();
+            String page=t6.getText();
+
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/LMS","root","prabin2062");
+            String query = "Insert into books(bookid,bookname,edition,publisher,price,page) values(?,?,?,?,?,?)";
+            PreparedStatement pst = con.prepareStatement(query);
+            pst.setString(1,bookid);
+            pst.setString(2,bookname);
+            pst.setString(3,edition);
+            pst.setString(4,publisher);
+            pst.setString(5,price);
+            pst.setString(6,page);
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+
     }
 
     public static void main(String[] args) {
