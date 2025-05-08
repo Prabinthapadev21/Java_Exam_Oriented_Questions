@@ -202,90 +202,101 @@ public class LMSDashboard {
 
 //                for about us section
 
-                about.addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        JInternalFrame frame2 = new JInternalFrame("About Us", true, true, true, true);
-                        frame2.setSize(600, 400);
-                        frame2.setLayout(null);
-                        frame2.setBackground(new Color(44,62,80));
+        about.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JInternalFrame frame2 = new JInternalFrame("About Us", true, true, true, true);
+                frame2.setSize(630, 400);
+                frame2.setLayout(null);
+                frame2.setBackground(new Color(44,62,80));
 
-                        // Developer Labels
-                        JLabel title = new JLabel("Library Management System - Developers");
-                        title.setBounds(140, 10, 350, 25);
-                        title.setFont(new Font("Arial", Font.BOLD, 16));
-                        frame2.add(title);
-                        title.setForeground(Color.WHITE);
+                // Developer Labels
+                JLabel title = new JLabel("Library Management System - Developers");
+                title.setBounds(140, 10, 350, 25);
+                title.setFont(new Font("Arial", Font.BOLD, 16));
+                frame2.add(title);
+                title.setForeground(Color.WHITE);
 
-                        // Load Images
-                        ImageIcon icon1 = new ImageIcon("LMS/photo.jpeg");
-                        ImageIcon icon2 = new ImageIcon("LMS/sasin.jpeg");
-                        ImageIcon icon3 = new ImageIcon("LMS/dada.jpeg");
+                // Load Images
+                ImageIcon icon1 = new ImageIcon("LMS/photo.jpeg");
+                ImageIcon icon2 = new ImageIcon("LMS/sasin.jpeg");
+                ImageIcon icon3 = new ImageIcon("LMS/dada.jpeg");
 
-                        // Resize images
-                        Image img1 = icon1.getImage().getScaledInstance(80, 80, Image.SCALE_SMOOTH);
-                        Image img2 = icon2.getImage().getScaledInstance(80, 80, Image.SCALE_SMOOTH);
-                        Image img3 = icon3.getImage().getScaledInstance(80, 80, Image.SCALE_SMOOTH);
+                // Resize images
+                Image img1 = icon1.getImage().getScaledInstance(80, 80, Image.SCALE_SMOOTH);
+                Image img2 = icon2.getImage().getScaledInstance(80, 80, Image.SCALE_SMOOTH);
+                Image img3 = icon3.getImage().getScaledInstance(80, 80, Image.SCALE_SMOOTH);
 
-                        // Image Labels
-                        JLabel pic1 = new JLabel(new ImageIcon(img1));
-                        pic1.setBounds(60, 60, 80, 80);
-                        frame2.add(pic1);
+                // Image Labels
+                JLabel pic1 = new JLabel(new ImageIcon(img1));
+                pic1.setBounds(60, 60, 80, 80);
+                frame2.add(pic1);
 
-                        JLabel pic2 = new JLabel(new ImageIcon(img2));
-                        pic2.setBounds(250, 60, 80, 80);
-                        frame2.add(pic2);
+                JLabel pic2 = new JLabel(new ImageIcon(img2));
+                pic2.setBounds(250, 60, 80, 80);
+                frame2.add(pic2);
 
-                        JLabel pic3 = new JLabel(new ImageIcon(img3));
-                        pic3.setBounds(440, 60, 80, 80);
-                        frame2.add(pic3);
+                JLabel pic3 = new JLabel(new ImageIcon(img3));
+                pic3.setBounds(440, 60, 80, 80);
+                frame2.add(pic3);
 
-                        // Names
-                        JLabel name1 = new JLabel("Prabin Thapa", JLabel.CENTER);
-                        name1.setBounds(40, 150, 120, 25);
-                        frame2.add(name1);
-                        name1.setForeground(Color.WHITE);
+                // Names and Roles
+                JLabel name1 = new JLabel("Prabin Thapa", JLabel.CENTER);
+                name1.setBounds(40, 150, 120, 25);
+                frame2.add(name1);
+                name1.setForeground(Color.WHITE);
 
-                        JLabel name2 = new JLabel("Sasin Godar", JLabel.CENTER);
-                        name2.setBounds(230, 150, 120, 25);
-                        frame2.add(name2);
-                        name2.setForeground(Color.WHITE);
+                JLabel role1 = new JLabel("Full Stack Developer", JLabel.CENTER);
+                role1.setBounds(40, 175, 130, 25);
+                frame2.add(role1);
+                role1.setForeground(Color.WHITE);
 
-                        JLabel name3 = new JLabel("Anuz Dhakal", JLabel.CENTER);
-                        name3.setBounds(420, 150, 120, 25);
-                        frame2.add(name3);
-                        name3.setForeground(Color.WHITE);
+                JLabel name2 = new JLabel("Sasin Godar", JLabel.CENTER);
+                name2.setBounds(230, 150, 120, 25);
+                frame2.add(name2);
+                name2.setForeground(Color.WHITE);
 
-                        // Description
-                        JLabel desc = new JLabel("<html><center>This Library Management System was developed<br>"
-                                + "as part of a software engineering project to handle books,<br>"
-                                + "students, and issue/return transactions efficiently.</center></html>");
-                        desc.setBounds(100, 200, 400, 80);
-                        frame2.add(desc);
-                        desc.setForeground(Color.WHITE);
+                JLabel role2 = new JLabel("Backend Developer", JLabel.CENTER);
+                role2.setBounds(230, 175, 130, 25);
+                frame2.add(role2);
+                role2.setForeground(Color.WHITE);
 
-                        frame2.setVisible(true);
-                        desktopPane.add(frame2);
+                JLabel name3 = new JLabel("Anuz Dhakal", JLabel.CENTER);
+                name3.setBounds(420, 150, 120, 25);
+                frame2.add(name3);
+                name3.setForeground(Color.WHITE);
 
-                        // Center the internal frame
-                        Dimension desktopSize = desktopPane.getSize();
-                        Dimension jInternalFrameSize = frame2.getSize();
-                        int x = (desktopSize.width - jInternalFrameSize.width) / 2;
-                        int y = (desktopSize.height - jInternalFrameSize.height) / 2;
-                        frame2.setLocation(x, y);
+                JLabel role3 = new JLabel("Frontend + UI Developer", JLabel.CENTER);
+                role3.setBounds(420, 175, 160, 25);
+                frame2.add(role3);
+                role3.setForeground(Color.WHITE);
 
-                        try {
-                            frame2.setSelected(true);
-                        } catch (Exception ex) {
-                            ex.printStackTrace();
-                        }
+                // Description
+                JLabel desc = new JLabel("<html><center>This Library Management System was developed<br>"
+                        + "as part of a software engineering project to handle books,<br>"
+                        + "students, and issue/return transactions efficiently.</center></html>");
+                desc.setBounds(100, 200, 400, 80);
+                frame2.add(desc);
+                desc.setForeground(Color.WHITE);
 
+                frame2.setVisible(true);
+                desktopPane.add(frame2);
 
+                // Center the internal frame
+                Dimension desktopSize = desktopPane.getSize();
+                Dimension jInternalFrameSize = frame2.getSize();
+                int x = (desktopSize.width - jInternalFrameSize.width) / 2;
+                int y = (desktopSize.height - jInternalFrameSize.height) / 2;
+                frame2.setLocation(x, y);
 
-
-
+                try {
+                    frame2.setSelected(true);
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
             }
         });
+
     }
     public void newBookConnection() {
         try {
