@@ -296,7 +296,6 @@ public class LMSDashboard {
                 }
             }
         });
-
     }
 
 //    for adding the new books into the database.
@@ -343,7 +342,7 @@ public class LMSDashboard {
             JOptionPane.showMessageDialog(frame, "Unexpected error: " + ex.getMessage());
         }
     }
-    
+
     public static void main(String[] args) {
         new LMSDashboard();
     }
