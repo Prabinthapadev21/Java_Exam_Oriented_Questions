@@ -21,7 +21,7 @@ public class WelcomePage {
         panel.setLayout(null);
         frame.add(panel);
 
-        // Logo placeholder (or replace with ImageIcon)
+        // Logo
         JLabel logo = new JLabel("📚", JLabel.CENTER);
         logo.setFont(new Font("SansSerif", Font.PLAIN, 80));
         logo.setBounds(280, 30, 120, 100);
@@ -46,7 +46,7 @@ public class WelcomePage {
         JButton loginBtn = new JButton("Login");
         loginBtn.setBounds(200, 260, 120, 40);
         loginBtn.setBackground(new Color(52, 152, 219)); // blue
-        loginBtn.setForeground(Color.WHITE);
+        loginBtn.setForeground(Color.BLACK);
         loginBtn.setFont(new Font("SansSerif", Font.BOLD, 16));
         loginBtn.setFocusPainted(false);
         panel.add(loginBtn);
@@ -60,22 +60,22 @@ public class WelcomePage {
         signupBtn.setFocusPainted(false);
         panel.add(signupBtn);
 
-        // Action Listeners
+        // Action Listeners for login page
         loginBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.dispose();
-                // TODO: Redirect to login page
-                new LoginPage(); // You need to create this
+                // To redirect to login page
+                new LoginPage(); // to go to the login page
             }
         });
-
+//        Action Listeners for signup page
         signupBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.dispose();
-                // TODO: Redirect to signup page
-                new SignupPage(); // You need to create this
+                // TO redirect to signup page
+                new SignupPage(); // to go to signup page
             }
         });
 
