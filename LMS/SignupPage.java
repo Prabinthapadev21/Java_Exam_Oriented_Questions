@@ -20,6 +20,7 @@ public class SignupPage {
         frame = new JFrame("Signup Page");
         frame.setSize(400, 450);
         frame.setLayout(null);
+        frame.setLocationRelativeTo(null);
         frame.getContentPane().setBackground(new Color(44,62 , 80)); // Very light purple
 
         JLabel title = new JLabel("Sign up to LMS");

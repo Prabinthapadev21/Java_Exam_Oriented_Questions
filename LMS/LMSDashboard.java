@@ -17,6 +17,7 @@ public class LMSDashboard {
         frame = new JFrame("Library Management System");
         frame.setSize(750, 400);
         frame.setLayout(null);
+        frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // Desktop Pane
@@ -164,6 +165,15 @@ public class LMSDashboard {
                     }
                 });
 
+//                for the logout button
+                logout.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        frame.dispose();
+                        new WelcomePage();
+                    }
+                });
+
                 // Add internal frame to desktopPane
                 desktopPane.add(frame1);
 
@@ -220,6 +230,8 @@ public class LMSDashboard {
             JOptionPane.showMessageDialog(frame,"Fields cannot be empty"+ex.getMessage());
         }
     }
+
+//    for disposing the dashboard for logout button
 
 
     public static void main(String[] args) {

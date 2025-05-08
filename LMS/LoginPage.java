@@ -18,6 +18,7 @@ public class LoginPage {
         frame = new JFrame("Login Page");
         frame.setSize(400, 350);
         frame.setLayout(null);
+        frame.setLocationRelativeTo(null);
         frame.getContentPane().setBackground(new Color(44, 62, 80)); // Light blue
 
         JLabel title = new JLabel("Sign in to LMS");
