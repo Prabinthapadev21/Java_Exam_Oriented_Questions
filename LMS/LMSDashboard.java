@@ -116,29 +116,49 @@ public class LMSDashboard {
                 frame1.add(l6);
 
                 // TextFields
-                 t1 = new JTextField();
+                t1 = new JTextField();
                 t1.setBounds(160, 30, 250, 25);
                 frame1.add(t1);
 
-                 t2 = new JTextField();
+                t2 = new JTextField();
                 t2.setBounds(160, 70, 250, 25);
                 frame1.add(t2);
 
-                 t3 = new JTextField();
+                t3 = new JTextField();
                 t3.setBounds(160, 110, 250, 25);
                 frame1.add(t3);
 
-                 t4 = new JTextField();
+                t4 = new JTextField();
                 t4.setBounds(160, 150, 250, 25);
                 frame1.add(t4);
 
-                 t5 = new JTextField();
+                t5 = new JTextField();
                 t5.setBounds(160, 190, 250, 25);
                 frame1.add(t5);
 
-                 t6 = new JTextField();
+                t6 = new JTextField();
                 t6.setBounds(160, 230, 250, 25);
                 frame1.add(t6);
+
+
+                // Add internal frame to desktopPane
+                desktopPane.add(frame1);
+
+                // Centering the internal frame
+                Dimension desktopSize = desktopPane.getSize();
+                Dimension jInternalFrameSize = frame1.getSize();
+                int x = (desktopSize.width - jInternalFrameSize.width) / 2;
+                int y = (desktopSize.height - jInternalFrameSize.height) / 2;
+                frame1.setLocation(x, y);
+
+                frame1.setVisible(true);
+
+                try {
+                    frame1.setSelected(true);
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+
 
                 // Buttons
                 JButton addBtn = new JButton("Add");
@@ -148,6 +168,7 @@ public class LMSDashboard {
                 JButton backBtn = new JButton("Back");
                 backBtn.setBounds(310, 280, 100, 30);
                 frame1.add(backBtn);
+
 
 //                dispose for the back button
                 backBtn.addActionListener(new ActionListener() {
@@ -164,6 +185,8 @@ public class LMSDashboard {
                         newBookConnection();
                     }
                 });
+            }
+        });
 
 //                for the logout button
                 logout.addActionListener(new ActionListener() {
@@ -176,6 +199,7 @@ public class LMSDashboard {
 
 
 
+
 //                for about us section
 
                 about.addActionListener(new ActionListener() {
@@ -184,17 +208,19 @@ public class LMSDashboard {
                         JInternalFrame frame2 = new JInternalFrame("About Us", true, true, true, true);
                         frame2.setSize(600, 400);
                         frame2.setLayout(null);
+                        frame2.setBackground(new Color(44,62,80));
 
                         // Developer Labels
                         JLabel title = new JLabel("Library Management System - Developers");
                         title.setBounds(140, 10, 350, 25);
                         title.setFont(new Font("Arial", Font.BOLD, 16));
                         frame2.add(title);
+                        title.setForeground(Color.WHITE);
 
                         // Load Images
-                        ImageIcon icon1 = new ImageIcon("src/LMS/images/prabin.jpg");
-                        ImageIcon icon2 = new ImageIcon("src/LMS/images/sasin.jpg");
-                        ImageIcon icon3 = new ImageIcon("src/LMS/images/anuz.jpg");
+                        ImageIcon icon1 = new ImageIcon("LMS/photo.jpeg");
+                        ImageIcon icon2 = new ImageIcon("LMS/sasin.jpeg");
+                        ImageIcon icon3 = new ImageIcon("LMS/dada.jpeg");
 
                         // Resize images
                         Image img1 = icon1.getImage().getScaledInstance(80, 80, Image.SCALE_SMOOTH);
@@ -218,14 +244,17 @@ public class LMSDashboard {
                         JLabel name1 = new JLabel("Prabin Thapa", JLabel.CENTER);
                         name1.setBounds(40, 150, 120, 25);
                         frame2.add(name1);
+                        name1.setForeground(Color.WHITE);
 
                         JLabel name2 = new JLabel("Sasin Godar", JLabel.CENTER);
                         name2.setBounds(230, 150, 120, 25);
                         frame2.add(name2);
+                        name2.setForeground(Color.WHITE);
 
                         JLabel name3 = new JLabel("Anuz Dhakal", JLabel.CENTER);
                         name3.setBounds(420, 150, 120, 25);
                         frame2.add(name3);
+                        name3.setForeground(Color.WHITE);
 
                         // Description
                         JLabel desc = new JLabel("<html><center>This Library Management System was developed<br>"
@@ -233,6 +262,7 @@ public class LMSDashboard {
                                 + "students, and issue/return transactions efficiently.</center></html>");
                         desc.setBounds(100, 200, 400, 80);
                         frame2.add(desc);
+                        desc.setForeground(Color.WHITE);
 
                         frame2.setVisible(true);
                         desktopPane.add(frame2);
@@ -249,72 +279,58 @@ public class LMSDashboard {
                         } catch (Exception ex) {
                             ex.printStackTrace();
                         }
-                    }
-                });
 
 
 
 
 
-
-
-
-                // Add internal frame to desktopPane
-                desktopPane.add(frame1);
-
-                // Centering the internal frame
-                Dimension desktopSize = desktopPane.getSize();
-                Dimension jInternalFrameSize = frame1.getSize();
-                int x = (desktopSize.width - jInternalFrameSize.width) / 2;
-                int y = (desktopSize.height - jInternalFrameSize.height) / 2;
-                frame1.setLocation(x, y);
-
-                frame1.setVisible(true);
-
-                try {
-                    frame1.setSelected(true);
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
             }
         });
     }
     public void newBookConnection() {
         try {
-            int  book_id = Integer.parseInt(t1.getText());
+            // Validate inputs
+            if (t1.getText().isEmpty() || t2.getText().isEmpty() || t3.getText().isEmpty() || t4.getText().isEmpty() || t5.getText().isEmpty() || t6.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(frame, "All fields must be filled.");
+                return;
+            }
+
+            int book_id = Integer.parseInt(t1.getText());
             String name = t2.getText();
             String edition = t3.getText();
             String publisher = t4.getText();
-            int price =Integer.parseInt( t5.getText());
-            int  page = Integer.parseInt(t6.getText());
+            int price = Integer.parseInt(t5.getText());
+            int page = Integer.parseInt(t6.getText());
 
+            // Connect to the database
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/LMS", "root", "prabin2062");
-            String query = "INSERT INTO books(book_id, name, edition, publisher, price, page) VALUES (?, ?, ?, ?, ?, ?)";
-            PreparedStatement pst = con.prepareStatement(query);
-            pst.setInt(1, book_id);
-            pst.setString(2, name);
-            pst.setString(3, edition);
-            pst.setString(4, publisher);
-            pst.setInt(5, price);
-            pst.setInt(6, page);
+            try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/LMS", "root", "prabin2062");
+                 PreparedStatement pst = con.prepareStatement("INSERT INTO books(book_id, name, edition, publisher, price, page) VALUES (?, ?, ?, ?, ?, ?)")) {
 
-            // Execute the insert
-            int rowsAffected = pst.executeUpdate();
+                pst.setInt(1, book_id);
+                pst.setString(2, name);
+                pst.setString(3, edition);
+                pst.setString(4, publisher);
+                pst.setInt(5, price);
+                pst.setInt(6, page);
 
-            if (rowsAffected > 0) {
-                JOptionPane.showMessageDialog(frame,"Book inserted successfully.");
-            } else {
-                JOptionPane.showMessageDialog(frame,"Book insertion failed.");
+                int rowsAffected = pst.executeUpdate();
+
+                if (rowsAffected > 0) {
+                    JOptionPane.showMessageDialog(frame, "Book inserted successfully.");
+                } else {
+                    JOptionPane.showMessageDialog(frame, "Book insertion failed.");
+                }
             }
-
-            pst.close();
-            con.close();
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(frame, "Please enter valid numeric values for Book ID, Price, and Pages.");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(frame, "Database error: " + ex.getMessage());
         } catch (Exception ex) {
-            ex.printStackTrace();
-            JOptionPane.showMessageDialog(frame,"Fields cannot be empty"+ex.getMessage());
+            JOptionPane.showMessageDialog(frame, "Unexpected error: " + ex.getMessage());
         }
     }
+
 
 
 
