@@ -23,15 +23,18 @@ public class LoginPage {
         JLabel title = new JLabel("Sign in to LMS");
         title.setBounds(120, 20, 200, 30);
         title.setFont(new Font("Segoe UI", Font.BOLD, 20));
+        title.setForeground(Color.WHITE);
 
         JLabel userLabel = new JLabel("Username or Email");
         userLabel.setBounds(60, 70, 150, 20);
+        userLabel.setForeground(Color.WHITE);
 
         usernameField = new JTextField();
         usernameField.setBounds(60, 90, 250, 30);
 
         JLabel passLabel = new JLabel("Password");
         passLabel.setBounds(60, 130, 150, 20);
+        passLabel.setForeground(Color.WHITE);
 
         passwordField = new JPasswordField();
         passwordField.setBounds(60, 150, 250, 30);

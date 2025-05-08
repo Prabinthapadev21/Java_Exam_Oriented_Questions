@@ -20,31 +20,36 @@ public class SignupPage {
         frame = new JFrame("Signup Page");
         frame.setSize(400, 450);
         frame.setLayout(null);
-        frame.getContentPane().setBackground(new Color(245, 245, 255)); // Very light purple
+        frame.getContentPane().setBackground(new Color(44,62 , 80)); // Very light purple
 
         JLabel title = new JLabel("Sign up to LMS");
         title.setBounds(110, 20, 200, 30);
         title.setFont(new Font("Segoe UI", Font.BOLD, 20));
+        title.setForeground(Color.WHITE);
 
         JLabel userLabel = new JLabel("Username");
         userLabel.setBounds(60, 60, 150, 20);
         usernameField = new JTextField();
         usernameField.setBounds(60, 80, 250, 30);
+        userLabel.setForeground(Color.WHITE);
 
         JLabel emailLabel = new JLabel("Email");
         emailLabel.setBounds(60, 120, 150, 20);
         emailField = new JTextField();
         emailField.setBounds(60, 140, 250, 30);
+        emailLabel.setForeground(Color.WHITE);
 
         JLabel passLabel = new JLabel("Password");
         passLabel.setBounds(60, 180, 150, 20);
         passwordField = new JPasswordField();
         passwordField.setBounds(60, 200, 250, 30);
+        passLabel.setForeground(Color.WHITE);
 
         JLabel confirmLabel = new JLabel("Confirm Password");
         confirmLabel.setBounds(60, 240, 150, 20);
         confirmPasswordField = new JPasswordField();
         confirmPasswordField.setBounds(60, 260, 250, 30);
+        confirmLabel.setForeground(Color.WHITE);
 
         continueButton = new JButton("Continue >");
         continueButton.setBounds(120, 320, 140, 35);
