@@ -11,7 +11,7 @@ public class LMSDashboard {
     public JFrame frame;
     public JDesktopPane desktopPane;
     public JButton newBook, report, newStudent, issueBook, returnBook, about,logout;
-    public JTextField t1,t2,t3,t4,t5,t6;
+    public JTextField t1,t2,t3,t4,t5,t6,t7;
 
     public LMSDashboard() {
         frame = new JFrame("Library Management System");
@@ -298,6 +298,8 @@ public class LMSDashboard {
         });
 
     }
+
+//    for adding the new books into the database.
     public void newBookConnection() {
         try {
             // Validate inputs
@@ -343,8 +345,222 @@ public class LMSDashboard {
     }
 
 
+//    Internal frame for the addNew Student section
 
+    newStudent.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            JInternalFrame frame1 = new JInternalFrame("Add New Student", true, true, true, true);
+            frame1.setLayout(null);
+            frame1.setSize(600, 400);
 
+            // Labels
+            JLabel l1 = new JLabel("Student ID:");
+            l1.setBounds(50, 30, 100, 25);
+            frame1.add(l1);
+
+            JLabel l2 = new JLabel("Name:");
+            l2.setBounds(50, 70, 100, 25);
+            frame1.add(l2);
+
+            JLabel l3 = new JLabel("Father:");
+            l3.setBounds(50, 110, 100, 25);
+            frame1.add(l3);
+
+            JLabel l4 = new JLabel("Course:");
+            l4.setBounds(50, 150, 100, 25);
+            frame1.add(l4);
+
+            JLabel l5 = new JLabel("Branch:");
+            l5.setBounds(50, 190, 100, 25);
+            frame1.add(l5);
+
+            JLabel l6 = new JLabel("Year:");
+            l6.setBounds(50, 230, 100, 25);
+            frame1.add(l6);
+
+            JLabel l7 = new JLabel("Semester:");
+            l7.setBounds(50, 270, 100, 25);
+            frame1.add(l7);
+
+            // Text Fields
+            JTextField t1 = new JTextField(); // student id
+            t1.setBounds(160, 30, 250, 25);
+            frame1.add(t1);
+
+            JTextField t2 = new JTextField(); // name
+            t2.setBounds(160, 70, 250, 25);
+            frame1.add(t2);
+
+            JTextField t3 = new JTextField(); // father
+            t3.setBounds(160, 110, 250, 25);
+            frame1.add(t3);
+
+            JTextField t5 = new JTextField(); // branch
+            t5.setBounds(160, 190, 250, 25);
+            frame1.add(t5);
+
+            // --- Radio Buttons for Course ---
+            JRadioButton bca = new JRadioButton("BCA");
+            bca.setBounds(160, 150, 60, 25);
+            JRadioButton csit = new JRadioButton("CSIT");
+            csit.setBounds(230, 150, 60, 25);
+            JRadioButton bim = new JRadioButton("BIM");
+            bim.setBounds(300, 150, 60, 25);
+            JRadioButton bhm = new JRadioButton("BHM");
+            bhm.setBounds(370, 150, 60, 25);
+
+            ButtonGroup courseGroup = new ButtonGroup();
+            courseGroup.add(bca);
+            courseGroup.add(csit);
+            courseGroup.add(bim);
+            courseGroup.add(bhm);
+
+            frame1.add(bca);
+            frame1.add(csit);
+            frame1.add(bim);
+            frame1.add(bhm);
+
+            // --- Radio Buttons for Year ---
+            JRadioButton y1 = new JRadioButton("1");
+            y1.setBounds(160, 230, 40, 25);
+            JRadioButton y2 = new JRadioButton("2");
+            y2.setBounds(210, 230, 40, 25);
+            JRadioButton y3 = new JRadioButton("3");
+            y3.setBounds(260, 230, 40, 25);
+            JRadioButton y4 = new JRadioButton("4");
+            y4.setBounds(310, 230, 40, 25);
+
+            ButtonGroup yearGroup = new ButtonGroup();
+            yearGroup.add(y1);
+            yearGroup.add(y2);
+            yearGroup.add(y3);
+            yearGroup.add(y4);
+
+            frame1.add(y1);
+            frame1.add(y2);
+            frame1.add(y3);
+            frame1.add(y4);
+
+            // --- Radio Buttons for Semester ---
+            JRadioButton[] semButtons = new JRadioButton[8];
+            ButtonGroup semGroup = new ButtonGroup();
+
+            for (int i = 0; i < 8; i++) {
+                semButtons[i] = new JRadioButton(String.valueOf(i + 1));
+                semButtons[i].setBounds(160 + i * 40, 270, 40, 25);
+                semGroup.add(semButtons[i]);
+                frame1.add(semButtons[i]);
+            }
+
+            // Buttons
+            JButton addBtn = new JButton("Add");
+            addBtn.setBounds(160, 310, 100, 30);
+            frame1.add(addBtn);
+
+            JButton backBtn = new JButton("Back");
+            backBtn.setBounds(310, 310, 100, 30);
+            frame1.add(backBtn);
+
+            // Add internal frame to desktopPane
+            desktopPane.add(frame1);
+
+            // Center the internal frame
+            Dimension desktopSize = desktopPane.getSize();
+            Dimension jInternalFrameSize = frame1.getSize();
+            int x = (desktopSize.width - jInternalFrameSize.width) / 2;
+            int y = (desktopSize.height - jInternalFrameSize.height) / 2;
+            frame1.setLocation(x, y);
+
+            frame1.setVisible(true);
+
+            try {
+                frame1.setSelected(true);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+
+            // Back button action
+            backBtn.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    frame1.dispose();
+                }
+            });
+
+            // Add button action
+            addBtn.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    try {
+                        int studentid = Integer.parseInt(t1.getText());
+                        String name = t2.getText();
+                        String father = t3.getText();
+                        String branch = t5.getText();
+
+                        // Get selected course
+                        String course = null;
+                        if (bca.isSelected()) course = "BCA";
+                        else if (csit.isSelected()) course = "CSIT";
+                        else if (bim.isSelected()) course = "BIM";
+                        else if (bhm.isSelected()) course = "BHM";
+
+                        // Get selected year
+                        int year = y1.isSelected() ? 1 : y2.isSelected() ? 2 : y3.isSelected() ? 3 : y4.isSelected() ? 4 : 0;
+
+                        // Get selected semester
+                        int sem = 0;
+                        for (int i = 0; i < 8; i++) {
+                            if (semButtons[i].isSelected()) {
+                                sem = i + 1;
+                                break;
+                            }
+                        }
+
+                        // Call the DB method
+                        new_studentDatabase(studentid, name, father, course, branch, year, sem);
+                        frame1.dispose();
+
+                    } catch (NumberFormatException ex) {
+                        JOptionPane.showMessageDialog(frame1, "Please enter valid numbers in ID field");
+                    }
+                }
+            });
+        }
+    });
+
+    // -- DB Save Method --
+    public void new_studentDatabase(int studentid, String name, String father, String course, String branch, int year, int sem) {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/LMS", "root", "prabin2062");
+
+            String query = "INSERT INTO student_info(studentid, name, father, course, branch, year, sem) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            PreparedStatement pst = con.prepareStatement(query);
+
+            pst.setInt(1, studentid);
+            pst.setString(2, name);
+            pst.setString(3, father);
+            pst.setString(4, course);
+            pst.setString(5, branch);
+            pst.setInt(6, year);
+            pst.setInt(7, sem);
+
+            int row = pst.executeUpdate();
+            if (row > 0) {
+                JOptionPane.showMessageDialog(frame, "Saved Successfully");
+            } else {
+                JOptionPane.showMessageDialog(frame, "Error Occurred");
+            }
+
+            pst.close();
+            con.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(frame, "Database Error: " + ex.getMessage());
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(frame, "Unexpected Error: " + ex.getMessage());
+        }
+    }
     public static void main(String[] args) {
         new LMSDashboard();
     }
