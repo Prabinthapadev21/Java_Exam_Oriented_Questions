@@ -46,7 +46,7 @@ public class WelcomePage {
         JButton enterButton = new JButton("Enter");
         enterButton.setBounds(280, 250, 120, 40);
         enterButton.setBackground(new Color(46, 204, 113)); // green
-        enterButton.setForeground(Color.WHITE);
+        enterButton.setForeground(Color.BLACK);
         enterButton.setFont(new Font("SansSerif", Font.BOLD, 16));
         enterButton.setFocusPainted(false);
         panel.add(enterButton);
