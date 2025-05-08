@@ -169,10 +169,11 @@ public class LMSDashboard {
                 logout.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        frame.dispose();
-                        new WelcomePage();
+                        frame.dispose(); // Closes the LMSDashboard window
+                        new WelcomePage(); // Opens the WelcomePage
                     }
                 });
+
 
                 // Add internal frame to desktopPane
                 desktopPane.add(frame1);
@@ -231,7 +232,6 @@ public class LMSDashboard {
         }
     }
 
-//    for disposing the dashboard for logout button
 
 
     public static void main(String[] args) {
