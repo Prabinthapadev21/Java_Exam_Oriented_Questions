@@ -115,27 +115,27 @@ public class LMSDashboard {
                 frame1.add(l6);
 
                 // TextFields
-                JTextField t1 = new JTextField();
+                 t1 = new JTextField();
                 t1.setBounds(160, 30, 250, 25);
                 frame1.add(t1);
 
-                JTextField t2 = new JTextField();
+                 t2 = new JTextField();
                 t2.setBounds(160, 70, 250, 25);
                 frame1.add(t2);
 
-                JTextField t3 = new JTextField();
+                 t3 = new JTextField();
                 t3.setBounds(160, 110, 250, 25);
                 frame1.add(t3);
 
-                JTextField t4 = new JTextField();
+                 t4 = new JTextField();
                 t4.setBounds(160, 150, 250, 25);
                 frame1.add(t4);
 
-                JTextField t5 = new JTextField();
+                 t5 = new JTextField();
                 t5.setBounds(160, 190, 250, 25);
                 frame1.add(t5);
 
-                JTextField t6 = new JTextField();
+                 t6 = new JTextField();
                 t6.setBounds(160, 230, 250, 25);
                 frame1.add(t6);
 
@@ -186,8 +186,8 @@ public class LMSDashboard {
     }
     public void newBookConnection() {
         try {
-            int  bookid = Integer.parseInt(t1.getText());
-            String bookname = t2.getText();
+            int  book_id = Integer.parseInt(t1.getText());
+            String name = t2.getText();
             String edition = t3.getText();
             String publisher = t4.getText();
             int price =Integer.parseInt( t5.getText());
@@ -195,10 +195,10 @@ public class LMSDashboard {
 
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/LMS", "root", "prabin2062");
-            String query = "INSERT INTO books(bookid, bookname, edition, publisher, price, page) VALUES (?, ?, ?, ?, ?, ?)";
+            String query = "INSERT INTO books(book_id, name, edition, publisher, price, page) VALUES (?, ?, ?, ?, ?, ?)";
             PreparedStatement pst = con.prepareStatement(query);
-            pst.setInt(1, bookid);
-            pst.setString(2, bookname);
+            pst.setInt(1, book_id);
+            pst.setString(2, name);
             pst.setString(3, edition);
             pst.setString(4, publisher);
             pst.setInt(5, price);
@@ -208,15 +208,16 @@ public class LMSDashboard {
             int rowsAffected = pst.executeUpdate();
 
             if (rowsAffected > 0) {
-                System.out.println("Book inserted successfully.");
+                JOptionPane.showMessageDialog(frame,"Book inserted successfully.");
             } else {
-                System.out.println("Book insertion failed.");
+                JOptionPane.showMessageDialog(frame,"Book insertion failed.");
             }
 
             pst.close();
             con.close();
         } catch (Exception ex) {
             ex.printStackTrace();
+            JOptionPane.showMessageDialog(frame,"Fields cannot be empty"+ex.getMessage());
         }
     }
 
