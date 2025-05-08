@@ -16,19 +16,19 @@ public class WelcomePage {
 
         // Background Panel
         JPanel panel = new JPanel();
-        panel.setBackground(new Color(44, 62, 80)); // dark blue-gray
+        panel.setBackground(new Color(44, 62, 80)); // dark background
         panel.setBounds(0, 0, 700, 450);
         panel.setLayout(null);
         frame.add(panel);
 
-        // Logo placeholder (can be replaced with an actual logo)
+        // Logo placeholder (or replace with ImageIcon)
         JLabel logo = new JLabel("📚", JLabel.CENTER);
         logo.setFont(new Font("SansSerif", Font.PLAIN, 80));
         logo.setBounds(280, 30, 120, 100);
         logo.setForeground(Color.WHITE);
         panel.add(logo);
 
-        // Title Label
+        // Title
         JLabel title = new JLabel("Library Management System", JLabel.CENTER);
         title.setFont(new Font("Serif", Font.BOLD, 28));
         title.setForeground(Color.WHITE);
@@ -42,20 +42,40 @@ public class WelcomePage {
         subtitle.setBounds(100, 180, 500, 30);
         panel.add(subtitle);
 
-        // Enter Button
-        JButton enterButton = new JButton("Enter");
-        enterButton.setBounds(280, 250, 120, 40);
-        enterButton.setBackground(new Color(46, 204, 113)); // green
-        enterButton.setForeground(Color.BLACK);
-        enterButton.setFont(new Font("SansSerif", Font.BOLD, 16));
-        enterButton.setFocusPainted(false);
-        panel.add(enterButton);
+        // Login Button
+        JButton loginBtn = new JButton("Login");
+        loginBtn.setBounds(200, 260, 120, 40);
+        loginBtn.setBackground(new Color(52, 152, 219)); // blue
+        loginBtn.setForeground(Color.WHITE);
+        loginBtn.setFont(new Font("SansSerif", Font.BOLD, 16));
+        loginBtn.setFocusPainted(false);
+        panel.add(loginBtn);
 
-        enterButton.addActionListener(new ActionListener() {
+        // Signup Button
+        JButton signupBtn = new JButton("Sign Up");
+        signupBtn.setBounds(380, 260, 120, 40);
+        signupBtn.setBackground(new Color(241, 196, 15)); // yellow
+        signupBtn.setForeground(Color.BLACK);
+        signupBtn.setFont(new Font("SansSerif", Font.BOLD, 16));
+        signupBtn.setFocusPainted(false);
+        panel.add(signupBtn);
+
+        // Action Listeners
+        loginBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.dispose(); // Close welcome page
-                new LMSDashboard(); // Open dashboard
+                frame.dispose();
+                // TODO: Redirect to login page
+                new LoginPage(); // You need to create this
+            }
+        });
+
+        signupBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                // TODO: Redirect to signup page
+                new SignupPage(); // You need to create this
             }
         });
 
