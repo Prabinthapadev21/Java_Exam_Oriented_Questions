@@ -150,6 +150,7 @@ public class AddNewStudentFrame extends JInternalFrame {
         Dimension dSize = desktopPane.getSize();
         setLocation((dSize.width - getWidth()) / 2, (dSize.height - getHeight()) / 2);
         setVisible(true);
+
     }
 
     public void new_studentDatabase(int studentid, String name, String father, String course, String branch, int year, int sem) {

@@ -296,6 +296,16 @@ public class LMSDashboard {
                 }
             }
         });
+
+        newStudent.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                AddNewStudentFrame studentFrame = new AddNewStudentFrame(desktopPane);
+                desktopPane.add(studentFrame);  // Optional if already in constructor
+                studentFrame.setVisible(true);  // Just in case
+                studentFrame.moveToFront();     // Bring to front
+            }
+        });
+
     }
 
 //    for adding the new books into the database.
