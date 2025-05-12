@@ -17,7 +17,7 @@ public class Continue {
             }
             else
             {
-                System.out.println(i+" ");
+                System.out.print(i+" ");
             }
         }
     }
