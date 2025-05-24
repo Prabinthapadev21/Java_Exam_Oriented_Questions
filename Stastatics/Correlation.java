@@ -15,6 +15,11 @@ public class Correlation {
         double numerator = n * sumXY - sumX * sumY;
         double denominator = Math.sqrt((n * sumX2 - sumX * sumX) * (n * sumY2 - sumY * sumY));
         double correlation = numerator / denominator;
+        System.out.println("The sum of x is: " + sumX);
+        System.out.println("The sum of y is: " + sumY);
+        System.out.println("The sum of x*y is: " + sumXY);
+        System.out.println("The sum of x^2 is: " + sumX2);
+        System.out.println("The sum of y^2 is: " + sumY2);
         System.out.println("The correlation coefficient is: " + correlation);
     }
 }

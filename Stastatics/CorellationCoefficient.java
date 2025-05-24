@@ -1,5 +1,5 @@
 package Stastatics;
-import java.sql.SQLOutput;
+import Stastatics.Correlation;
 import java.util.Scanner;
 public class CorellationCoefficient {
     public static void main(String[] args) {
@@ -16,6 +16,7 @@ public class CorellationCoefficient {
         for (int i = 0; i < n; i++) {
             y[i] = sc.nextInt();
         }
-
+        Correlation c = new Correlation();
+        c.Coefficient(x, y);
     }
 }
