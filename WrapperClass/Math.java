@@ -1,15 +1,14 @@
 package WrapperClass;
-
 public class Math {
-    public int max(int a,int b)
+    public void max(int a,int b)
     {
         if(a>b)
         {
-            return a;
+            System.out.println("Max is "+a);
         }
         else
         {
-            return b;
+            System.out.println("Max is"+b);
         }
     }
 }
