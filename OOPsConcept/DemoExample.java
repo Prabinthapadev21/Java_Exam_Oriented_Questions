@@ -1,15 +1,21 @@
 package OOPsConcept;
- class Single
- {
+ class Single{
      public void display()
      {
-         System.out.println("Hello");
+         System.out.println("Class Single");
      }
  }
  class Double extends Single
  {
+     public void show()
+     {
+         System.out.println("Class Double");
+     }
+ }
+ class Triple extends Double{
      public static void main(String[] args) {
-         Double d = new Double();
-         d.display();
+         Triple t = new Triple();
+         t.display();
+         t.show();
      }
  }
