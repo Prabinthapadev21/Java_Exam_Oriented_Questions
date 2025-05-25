@@ -16,6 +16,6 @@ public class StastaticsSolution {
             y[i] = sc.nextInt();
         }
         Correlation c = new Correlation();
-        c.Coefficient(x, y);
+        c.Solution(x, y);
     }
 }
