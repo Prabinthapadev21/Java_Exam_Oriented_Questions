@@ -1,25 +1,32 @@
 package OOPsConcept;
- interface Single
+ class Demo
  {
-     void display();
- }
- interface Double
- {
-     void show();
- }
- class Triple implements Single,Double{
-    public void display()
+     private String name;
+     private int age;
+
+     public void setName(String name)
      {
-         System.out.println("This is interface 1");
+         this.name= name;
      }
-   public   void show()
+     public String getName()
      {
-         System.out.println("This is interface 2");
+         return name;
+     }
+
+     public void setAge(int age) {
+         this.age = age;
+     }
+
+     public int getAge() {
+         return age;
      }
 
      public static void main(String[] args) {
-         Triple t = new Triple();
-         t.display();
-         t.show();
+         Demo d = new Demo();
+         d.setName("Prabin");
+         d.setAge(21);
+
+         System.out.println("Name = "+d.getName());
+         System.out.println("Age = "+d.getAge());
      }
  }
