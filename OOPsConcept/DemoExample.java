@@ -18,8 +18,8 @@ class SwingDemo
 
         JLabel l2 = new JLabel("Password");
         l2.setBounds(60,80,80,20);
-        JTextField t2 = new JTextField();
-        t2.setBounds(160,80,100,30);
+        JPasswordField p = new JPasswordField();
+        p.setBounds(160,80,100,30);
 
         JButton b = new JButton("Submit");
         b.setBounds(160,100,80,30);
@@ -58,7 +58,6 @@ class SwingDemo
                 catch (Exception ex)
                 {
                     ex.printStackTrace();
-                    JOptionPane.showMessageDialog(f,"Please accept the terms and condition first");
                 }
             }
         });
