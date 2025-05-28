@@ -29,7 +29,7 @@ class SwingDemo
         f.add(l1);
         f.add(t1);
         f.add(l2);
-        f.add(t2);
+        f.add(p);
         f.add(b);
 //        Default close operations
         f.setSize(400,400);
@@ -41,24 +41,27 @@ class SwingDemo
         b.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                try {
+
                     String correctUsername = "Prabin";
                     String correctPass = "prabin123";
 
                     String username = t1.getText();
-                    String password = t2.getText();
+                    String password =new String( p.getPassword());
 
-                    FileWriter fw = new FileWriter("exam.txt");
 
-                    if (correctUsername.equals(username) || correctPass.equals(password)) {
-                        fw.write(username);
-                        fw.write(password);
+                    if (correctUsername.equals(username) && correctPass.equals(password)) {
+                        try (FileWriter fw = new FileWriter("exam.txt")) {
+                            fw.write("USername = " + username);
+                            fw.write("Password = " + password);
+                            JOptionPane.showMessageDialog(f,"LoginSuccessfully");
+                        } catch (Exception ex) {
+                            ex.printStackTrace();
+                        }
                     }
-                }
-                catch (Exception ex)
-                {
-                    ex.printStackTrace();
-                }
+                    else
+                        {
+                            JOptionPane.showMessageDialog(f, "Please accept the terms and condition first");
+                        }
             }
         });
     }
