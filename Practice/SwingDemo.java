@@ -16,14 +16,15 @@ public class SwingDemo {
         t.setBounds(160,60,80,30);
 
         JButton b = new JButton("Calculate");
-        b.setBounds(160,140,80,30);
+        b.setBounds(160,140,100,30);
 
         JTextField t1 = new JTextField();
-        b.setBounds(160,160,100,30);
+        t1.setBounds(160,160,100,30);
 
         f.add(l);
         f.add(t);
         f.add(b);
+        f.add(t1);
 
 //        default operations
         f.setSize(400,400);
