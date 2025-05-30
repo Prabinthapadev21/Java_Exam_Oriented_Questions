@@ -1,0 +1,10 @@
+| Topic             | What It Means (Simple)                     | Example                             |
+| ----------------- | ------------------------------------------ | ----------------------------------- |
+| **Class**         | A blueprint for objects                    | `class Animal { }`                  |
+| **Object**        | Instance of a class                        | `new Animal();`                     |
+| **Method**        | A function inside a class                  | `void move() {}`                    |
+| **Inheritance**   | One class uses another’s features          | `class Cat extends Animal`          |
+| **Polymorphism**  | Same method name, different behavior       | `move()` in `Animal`, `Cat`, `Fish` |
+| **Encapsulation** | Hiding data with private + getters/setters | `private int age;`                  |
+| **Abstraction**   | Hiding complex logic                       | Use `abstract` class or `interface` |
+| **Interface**     | Only method declarations                   | `interface Animal`                  |
