@@ -1,1 +1,3 @@
 hiio
+hi this is a constant number
+hi this is a vowel number
