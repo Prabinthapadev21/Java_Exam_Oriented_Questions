@@ -22,3 +22,6 @@ public class QuestionOne {
         d.add();
     }
 }
+
+// we can use instance variable also instead of constructor but constructor helps to initialize the object dynamically when
+//the object is created and we can pass different values for the different object but the instance value is fixed.
