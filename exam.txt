@@ -1,1 +1,3 @@
-USername = PrabinPassword = prabin123
+Name = dfdsfdsf
+Email = dsfdsfsd
+Password = 234234
