@@ -32,13 +32,17 @@ public class TwentyFourQuestion {
 
         JRadioButton r1 = new JRadioButton("Male");
         r1.setBounds(160,180,100,30);
+
         JRadioButton r2 = new JRadioButton("Female");
         r2.setBounds(230,180,100,30);
+
         JLabel l5 = new JLabel("DOB");
         l5.setBounds(60,220,80,20);
+
         String day[] = {"1","2","3","4","5"};
         String month[] = {"Jan","Feb","Mar","Apr","May"};
         String year[] = {"2006","2005","2004","2003"};
+
         JComboBox box = new JComboBox(day);
         JComboBox box1 = new JComboBox(month);
         JComboBox box2 = new JComboBox(year);

@@ -1,4 +1,5 @@
 Name = prabin
-Email = thapa
-Password = 32324
-GenderMale
+Email = prabin@gmail.com
+Password = 3344343
+Gender = Male
+Dob = 5Feb2006
