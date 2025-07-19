@@ -1,0 +1,4 @@
+Name = prabin
+Email = thapa
+Password = 32324
+GenderMale

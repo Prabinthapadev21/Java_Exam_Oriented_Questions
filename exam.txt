@@ -1,3 +1,5 @@
-Name = dfdsfdsf
-Email = dsfdsfsd
-Password = 234234
+Name = prabin
+Email = prabin@gmail.com
+Password = 3344343
+Gender = Male
+Dob = 5Feb2006
